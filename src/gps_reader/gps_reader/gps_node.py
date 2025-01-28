@@ -7,6 +7,7 @@ import pynmea2
 import time
 import ssl
 import json
+import os
 
 from sensor_msgs.msg import NavSatFix
 from datetime import datetime
@@ -32,23 +33,49 @@ class GPSNode(Node):
         self.create_timer(0.01, self.read_serial_data)
 
         # -----------------------------
-        # 2) Setup PointPerfect MQTT
+        # 2) Setup Certificate Paths
         # -----------------------------
-        self.pp_client_id = "<YOUR_PP_CLIENT_ID>"  # e.g. "88653537-xxxx-xxxx"
+        # Determine the directory of the current script
+        current_dir = os.path.dirname(os.path.realpath(__file__))
+
+        # Define the 'certs' directory path relative to the script
+        certs_dir = os.path.join(current_dir, "certs")
+
+        # Define the paths to the certificate and key files
+        self.ca_certs = "/etc/ssl/certs/ca-certificates.crt"  # Default CA certs
+        self.certfile = "/home/ubuntu/ros2_ws/src/gps_reader/gps_reader/certs/device-88653537-0ec2-4a17-ab28-c4ecde3345e2-pp-cert.crt"
+        self.keyfile  = "/home/ubuntu/ros2_ws/src/gps_reader/gps_reader/certs/device-88653537-0ec2-4a17-ab28-c4ecde3345e2-pp-key.pem"
+
+        self.get_logger().info(f"Certificate file path: {self.certfile}")
+        self.get_logger().info(f"Key file path: {self.keyfile}")
+
+
+        # Debugging: Log the paths being used
+        self.get_logger().debug(f"CA Certs Path: {self.ca_certs}")
+        self.get_logger().debug(f"Certificate Path: {self.certfile}")
+        self.get_logger().debug(f"Key Path: {self.keyfile}")
+
+        # Verify certificate files exist
+        if not (os.path.exists(self.certfile) and os.path.exists(self.keyfile)):
+            self.get_logger().error("Certificate or key file not found. Please check the paths.")
+            self.get_logger().error(f"Looking for certfile at: {self.certfile}")
+            self.get_logger().error(f"Looking for keyfile at: {self.keyfile}")
+            return
+        else:
+            self.get_logger().info("Certificate and key files found.")
+
+        # -----------------------------
+        # 3) Setup PointPerfect MQTT
+        # -----------------------------
+        self.pp_client_id = "laksen"  # Replace with your actual PP Client ID
         self.pp_broker_address = "pp.services.u-blox.com"
         self.pp_broker_port = 8883
-
-        certfile = "/home/ubuntu/ros2_ws/src/gps_reader/certs/device-88653537-0ec2-4a17-ab28-c4ecde3345e2-pp-cert.crt"
-        keyfile = "/home/ubuntu/ros2_ws/src/gps_reader/certs/device-88653537-0ec2-4a17-ab28-c4ecde3345e2-pp-key.pem"
-        ca_certs = "/etc/ssl/certs/ca-certificates.crt"  # Default CA certs
-
-
 
         # Create paho MQTT client for PPP
         self.pp_client = mqtt.Client(client_id=self.pp_client_id)
         self.pp_client.on_connect = self.on_connect_pp
         self.pp_client.on_message = self.on_message_pp
-        
+
         # Setup TLS for PPP
         try:
             self.pp_client.tls_set(
@@ -58,16 +85,18 @@ class GPSNode(Node):
                 cert_reqs=ssl.CERT_REQUIRED,
                 tls_version=ssl.PROTOCOL_TLSv1_2
             )
+            self.get_logger().info("TLS configuration successful.")
         except ssl.SSLError as e:
             self.get_logger().error(f"SSL configuration error: {e}")
             return
-        
+
         self.pp_client.tls_insecure_set(False)
 
         # Connect and start the MQTT loop in a background thread
         try:
             self.pp_client.connect(self.pp_broker_address, self.pp_broker_port, keepalive=60)
             self.pp_client.loop_start()
+            self.get_logger().info("Connecting to PointPerfect MQTT Broker...")
         except Exception as e:
             self.get_logger().error(f"Failed to connect to PPP broker: {e}")
 
@@ -86,7 +115,7 @@ class GPSNode(Node):
         """Periodic callback to read from the GNSS device and publish NavSatFix."""
         if not self.serial_port or not self.serial_port.is_open:
             return
-        
+
         try:
             data = self.serial_port.read(self.serial_port.in_waiting or 1)
             if data:
@@ -122,7 +151,7 @@ class GPSNode(Node):
             self.get_logger().warn(f"NMEA parse error: {e}")
 
     # -----------------------------
-    # 3) PointPerfect MQTT Callbacks
+    # PointPerfect MQTT Callbacks
     # -----------------------------
     def on_connect_pp(self, client, userdata, flags, rc):
         """Callback when MQTT client connects to PPP broker."""
