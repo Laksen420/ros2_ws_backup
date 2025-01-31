@@ -428,5 +428,4 @@ typedef struct CAENRFIDReader_s {
 
 
 
-
 #endif /* SRC_LIB_CAENRFIDTYPES_LIGHT_H_ */

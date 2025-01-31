@@ -15,6 +15,7 @@ from datetime import datetime
 # paho-mqtt client
 from paho.mqtt import client as mqtt
 
+
 class GPSNode(Node):
     def __init__(self):
         super().__init__('gps_node')
@@ -30,7 +31,7 @@ class GPSNode(Node):
         self.publisher_ = self.create_publisher(NavSatFix, 'gps_data', 10)
 
         # Timer for reading data from serial port
-        self.create_timer(0.01, self.read_serial_data)
+        self.create_timer(0.5, self.read_serial_data)  # Increased interval to reduce CPU usage
 
         # -----------------------------
         # 2) Setup Certificate Paths
@@ -48,7 +49,6 @@ class GPSNode(Node):
 
         self.get_logger().info(f"Certificate file path: {self.certfile}")
         self.get_logger().info(f"Key file path: {self.keyfile}")
-
 
         # Debugging: Log the paths being used
         self.get_logger().debug(f"CA Certs Path: {self.ca_certs}")
@@ -105,7 +105,7 @@ class GPSNode(Node):
     # -----------------------------
     def open_gnss_serial_port(self):
         try:
-            self.serial_port = serial.Serial('/dev/ttyACM0', 115200, timeout=0)
+            self.serial_port = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
             self.get_logger().info("Opened GNSS serial port successfully.")
         except serial.SerialException as e:
             self.get_logger().error(f"Failed to open serial port: {e}")
@@ -129,6 +129,9 @@ class GPSNode(Node):
             self.get_logger().error(f"Error reading GNSS serial: {e}")
 
     def process_nmea_sentence(self, sentence):
+        if len(sentence) < 6:  # e.g. "$GP..." is minimum
+            return  # skip short lines
+
         try:
             msg = pynmea2.parse(sentence)
             if isinstance(msg, pynmea2.GGA):
@@ -140,7 +143,10 @@ class GPSNode(Node):
                 navsat_msg.latitude = msg.latitude
                 navsat_msg.longitude = msg.longitude
                 navsat_msg.altitude = float(msg.altitude) if msg.altitude else 0.0
-                # Optionally parse HDOP, # sats, etc.
+
+                # Optionally, add more data such as position_covariance
+                # Here, we set some default values
+                navsat_msg.position_covariance_type = NavSatFix.COVARIANCE_TYPE_UNKNOWN
 
                 self.publisher_.publish(navsat_msg)
                 self.get_logger().info(
@@ -200,14 +206,18 @@ class GPSNode(Node):
         else:
             self.get_logger().error("Serial port not open; cannot send corrections.")
 
+
 def main(args=None):
     rclpy.init(args=args)
     node = GPSNode()
-    rclpy.spin(node)
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        node.get_logger().info("Shutting down GPSNode...")
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
 
-    # Cleanup
-    node.destroy_node()
-    rclpy.shutdown()
 
 if __name__ == '__main__':
     main()

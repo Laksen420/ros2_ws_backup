@@ -1,8 +1,11 @@
-
 #ifndef SRC_LIB_CAENRFIDLIB_LIGHT_H_
 #define SRC_LIB_CAENRFIDLIB_LIGHT_H_
 
 #include "CAENRFIDTypes_Light.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
  /*
     CAENRFID_Connect
@@ -768,5 +771,9 @@ CAENRFIDErrorCodes CAENRFID_GetFramedTag(CAENRFIDReader* reader,
         CAENRFID_GetFramedTag function.
 */
 CAENRFIDErrorCodes CAENRFID_InventoryAbort(CAENRFIDReader* reader);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* SRC_LIB_CAENRFIDLIB_LIGHT_H_ */

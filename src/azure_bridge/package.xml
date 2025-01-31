@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>azure_bridge</name>
+  <version>0.0.0</version>
+  <description>ROS 2 node to send sensor data to Azure webapp or function.</description>
+  <maintainer email="your_email@example.com">Your Name</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <exec_depend>ament_cmake</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+
+  <!-- If you need additional Python deps, just note them here or ensure they're installed. -->
+  <!-- Optionally, you might add <exec_depend>python3-requests</exec_depend> if using ROS apt to manage. -->
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

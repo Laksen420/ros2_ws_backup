@@ -9,7 +9,7 @@
 #define HEADER_LEN                (10)
 #define AVP_HEADLEN               ( 6)
 
-#define UART_ABORT              (0xAB)
+#define UART_ABORT
 
 /*
     ---------------------------------------------------------------
