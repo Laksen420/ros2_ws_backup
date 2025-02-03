@@ -41,7 +41,7 @@
 */
 static volatile bool g_stopReading = false;  // set to true on Ctrl+C
 
-#define CAPTURE_WINDOW_MS 3000  // 3 seconds
+#define CAPTURE_WINDOW_MS 1000  // 1 seconds
 #define MAX_SNAP_TAGS     200   // how many tag reads to store during the capture window
 
 /* A simple structure to store each reading in our 3s window. */
