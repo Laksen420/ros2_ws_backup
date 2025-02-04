@@ -40,7 +40,7 @@ class AzureSenderNode(Node):
 
         # URL for your Azure Function HTTP trigger.
         # Replace <your_function_app> and <your_function_key> accordingly.
-        self.azure_function_url = "https://<your_function_app>.azurewebsites.net/api/ReceiveGpsDataFunction?code=<your_function_key>"
+        self.azure_function_url = "https://gutenspass.azurewebsites.net/api/ReceiveGpsDataFunction?code=7_9W847HkKXDj_TAqrmg0I6bryOYFyv0UccWhyC42A1GAzFuWjvRdw%3D%3D"
 
     def gps_callback(self, msg: NavSatFix):
         self.latest_gps = msg

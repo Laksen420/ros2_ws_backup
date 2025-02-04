@@ -23,7 +23,7 @@ extern "C" {
 
 using namespace std::chrono_literals;
 
-#define CAPTURE_WINDOW_MS 1000  // capture window duration in milliseconds
+#define CAPTURE_WINDOW_MS 1000  // Capture window duration in milliseconds
 
 // Structure to store a captured tag reading.
 struct TagReading {
@@ -56,7 +56,7 @@ public:
     reader_.disable_irqs  = _disable_irqs;
 
     // RS232 parameters (adjust port if needed).
-    port_params_.com         = (char*)"/dev/ttyACM0";
+    port_params_.com         = (char*)"/dev/ttyACM0";  // cast string literals if needed
     port_params_.baudrate    = 921600;
     port_params_.dataBits    = 8;
     port_params_.stopBits    = 1;
@@ -71,15 +71,15 @@ public:
     }
     RCLCPP_INFO(this->get_logger(), "RFID reader connected");
 
-    // Add a delay to let the reader initialize.
+    // Delay to let the reader initialize.
     std::this_thread::sleep_for(1s);
 
-    // Now configure the reader.
-    ec = CAENRFID_SetSourceConfiguration(&reader_, "Source_0", CONFIG_READCYCLE, 0);
+    // Configure the reader.
+    ec = CAENRFID_SetSourceConfiguration(&reader_, (char*)"Source_0", CONFIG_READCYCLE, 0);
     if (ec != CAENRFID_StatusOK) {
       RCLCPP_WARN(this->get_logger(), "Warning: setting infinite cycles failed: %d", ec);
     }
-    ec = CAENRFID_AddReadPoint(&reader_, "Source_0", "Ant0");
+    ec = CAENRFID_AddReadPoint(&reader_, (char*)"Source_0", (char*)"Ant0");
     if (ec != CAENRFID_StatusOK) {
       RCLCPP_WARN(this->get_logger(), "AddReadPoint returned %d (may be okay)", ec);
     }
@@ -90,8 +90,9 @@ public:
       return;
     }
 
+    // Start continuous inventory once.
     uint16_t flags = RSSI | CONTINUOS | FRAMED;
-    ec = CAENRFID_InventoryTag(&reader_, "Source_0", 0, 0, 0, NULL, 0, flags, NULL, NULL);
+    ec = CAENRFID_InventoryTag(&reader_, (char*)"Source_0", 0, 0, 0, NULL, 0, flags, NULL, NULL);
     if (ec != CAENRFID_StatusOK) {
       RCLCPP_ERROR(this->get_logger(), "Error starting continuous inventory: %d", ec);
       CAENRFID_Disconnect(&reader_);
@@ -99,7 +100,7 @@ public:
     }
     RCLCPP_INFO(this->get_logger(), "Continuous inventory started (RSSI enabled)");
 
-    // Start a timer to poll for tag data frequently.
+    // Start a timer to poll for tag data.
     timer_ = this->create_wall_timer(10ms, std::bind(&RFIDNode::timerCallback, this));
   }
 
@@ -109,23 +110,22 @@ public:
   }
 
 private:
-  // Callback when a trigger message is received.
+  // Trigger callback: simply start a capture window without restarting inventory.
   void triggerCallback(const std_msgs::msg::Empty::SharedPtr /*msg*/)
   {
-    if (!capturing_) {
-      RCLCPP_INFO(this->get_logger(), "Trigger received: starting capture window.");
-      capturing_ = true;
-      capture_start_ = std::chrono::steady_clock::now();
+    RCLCPP_INFO(this->get_logger(), "Trigger received: starting capture window.");
+    capturing_ = true;
+    capture_start_ = std::chrono::steady_clock::now();
+    {
       std::lock_guard<std::mutex> lock(snap_mutex_);
       snap_data_.clear();
     }
   }
 
-  // Timer callback runs every 10ms.
+  // Timer callback: poll continuously for framed tags during the capture window.
   void timerCallback()
   {
     if (capturing_) {
-      // Attempt to get a framed tag (nonblocking).
       CAENRFIDTag tag;
       memset(&tag, 0, sizeof(tag));
       bool has_tag = false;
@@ -183,7 +183,7 @@ private:
                 message.data.c_str(), best_rssi);
   }
 
-  // ROS publishers and subscribers.
+  // ROS publishers, subscribers, and timer.
   rclcpp::Publisher<std_msgs::msg::String>::SharedPtr best_tag_pub_;
   rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr trigger_sub_;
   rclcpp::TimerBase::SharedPtr timer_;
@@ -192,7 +192,7 @@ private:
   CAENRFIDReader reader_;
   RS232_params port_params_;
 
-  // Variables for the capture window.
+  // Capture window variables.
   std::atomic<bool> capturing_;
   std::chrono::steady_clock::time_point capture_start_;
   std::vector<TagReading> snap_data_;
