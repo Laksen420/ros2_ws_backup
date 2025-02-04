@@ -8,9 +8,9 @@ using namespace std::chrono_literals;
 class TriggerNode : public rclcpp::Node
 {
 public:
-  TriggerNode() : Node("rfid_trigger_node")
+  TriggerNode() : Node("trigger_node")
   {
-    publisher_ = this->create_publisher<std_msgs::msg::Empty>("rfid_trigger", 10);
+    publisher_ = this->create_publisher<std_msgs::msg::Empty>("trigger", 10);
     RCLCPP_INFO(this->get_logger(), "Trigger node started. Press ENTER to trigger...");
     timer_ = this->create_wall_timer(100ms, std::bind(&TriggerNode::checkForTrigger, this));
   }

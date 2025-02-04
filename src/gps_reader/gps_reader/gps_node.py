@@ -10,6 +10,7 @@ import json
 import os
 
 from sensor_msgs.msg import NavSatFix
+from std_msgs.msg import Empty
 from datetime import datetime
 
 # paho-mqtt client
@@ -28,6 +29,8 @@ class GPSNode(Node):
 
         # Create a ROS 2 publisher for /gps_data
         self.publisher_ = self.create_publisher(NavSatFix, 'gps_data', 10)
+        # Create a publisher for the GPS snapshot (triggered)
+        self.snapshot_pub = self.create_publisher(NavSatFix, 'gps_snapshot', 10)
 
         # Timer for reading data from serial port
         self.create_timer(0.01, self.read_serial_data)
@@ -35,13 +38,7 @@ class GPSNode(Node):
         # -----------------------------
         # 2) Setup Certificate Paths
         # -----------------------------
-        # Determine the directory of the current script
-        current_dir = os.path.dirname(os.path.realpath(__file__))
-
-        # Define the 'certs' directory path relative to the script
-        certs_dir = os.path.join(current_dir, "certs")
-
-        # Define the paths to the certificate and key files
+        # Use absolute paths (you already fixed these before)
         self.ca_certs = "/etc/ssl/certs/ca-certificates.crt"  # Default CA certs
         self.certfile = "/home/ubuntu/ros2_ws/src/gps_reader/gps_reader/certs/device-88653537-0ec2-4a17-ab28-c4ecde3345e2-pp-cert.crt"
         self.keyfile  = "/home/ubuntu/ros2_ws/src/gps_reader/gps_reader/certs/device-88653537-0ec2-4a17-ab28-c4ecde3345e2-pp-key.pem"
@@ -49,11 +46,8 @@ class GPSNode(Node):
         self.get_logger().info(f"Certificate file path: {self.certfile}")
         self.get_logger().info(f"Key file path: {self.keyfile}")
 
-
-        # Debugging: Log the paths being used
+        # Log the CA certificates path for debugging.
         self.get_logger().debug(f"CA Certs Path: {self.ca_certs}")
-        self.get_logger().debug(f"Certificate Path: {self.certfile}")
-        self.get_logger().debug(f"Key Path: {self.keyfile}")
 
         # Verify certificate files exist
         if not (os.path.exists(self.certfile) and os.path.exists(self.keyfile)):
@@ -92,7 +86,6 @@ class GPSNode(Node):
 
         self.pp_client.tls_insecure_set(False)
 
-        # Connect and start the MQTT loop in a background thread
         try:
             self.pp_client.connect(self.pp_broker_address, self.pp_broker_port, keepalive=60)
             self.pp_client.loop_start()
@@ -100,12 +93,21 @@ class GPSNode(Node):
         except Exception as e:
             self.get_logger().error(f"Failed to connect to PPP broker: {e}")
 
+        # -----------------------------
+        # 4) Subscribe to Trigger Topic
+        # -----------------------------
+        # This subscription listens on the "trigger" topic, which is published by the trigger node.
+        self.create_subscription(Empty, 'trigger', self.trigger_callback, 10)
+
+        # Variable to store the last valid GPS fix (NavSatFix message)
+        self.last_fix = None
+
     # -----------------------------
     # GNSS Serial Port Handling
     # -----------------------------
     def open_gnss_serial_port(self):
         try:
-            self.serial_port = serial.Serial('/dev/ttyACM0', 115200, timeout=0)
+            self.serial_port = serial.Serial('/dev/ttyACM1', 115200, timeout=0)
             self.get_logger().info("Opened GNSS serial port successfully.")
         except serial.SerialException as e:
             self.get_logger().error(f"Failed to open serial port: {e}")
@@ -136,19 +138,32 @@ class GPSNode(Node):
                 navsat_msg = NavSatFix()
                 navsat_msg.header.stamp = self.get_clock().now().to_msg()
                 navsat_msg.header.frame_id = "gps_link"
-
                 navsat_msg.latitude = msg.latitude
                 navsat_msg.longitude = msg.longitude
                 navsat_msg.altitude = float(msg.altitude) if msg.altitude else 0.0
-                # Optionally parse HDOP, # sats, etc.
+                # Optionally process additional fields like HDOP, number of satellites, etc.
 
                 self.publisher_.publish(navsat_msg)
                 self.get_logger().info(
-                    f"PPP-GPS lat={navsat_msg.latitude:.6f}, "
-                    f"lon={navsat_msg.longitude:.6f}, alt={navsat_msg.altitude:.2f}"
+                    f"PPP-GPS lat={navsat_msg.latitude:.6f}, lon={navsat_msg.longitude:.6f}, alt={navsat_msg.altitude:.2f}"
                 )
+
+                # Save the last valid fix for use in the trigger callback.
+                self.last_fix = navsat_msg
         except pynmea2.ParseError as e:
             self.get_logger().warn(f"NMEA parse error: {e}")
+
+    # -----------------------------
+    # Trigger Callback
+    # -----------------------------
+    def trigger_callback(self, msg):
+        self.get_logger().info("Trigger received in GPS node.")
+        if self.last_fix is not None:
+            # Publish the last fix as a snapshot
+            self.snapshot_pub.publish(self.last_fix)
+            self.get_logger().info("Published GPS snapshot on 'gps_snapshot'.")
+        else:
+            self.get_logger().warn("No valid GPS fix available yet.")
 
     # -----------------------------
     # PointPerfect MQTT Callbacks
@@ -157,17 +172,12 @@ class GPSNode(Node):
         """Callback when MQTT client connects to PPP broker."""
         if rc == 0:
             self.get_logger().info("Connected to PointPerfect MQTT Broker!")
-            # Subscribe to SPARTN key topic
             key_topic = "/pp/ubx/0236/ip"
             self.get_logger().info(f"Subscribing to key topic: {key_topic}")
             client.subscribe((key_topic, 1))
-
-            # Subscribe to AssistNow (if needed)
             assistnow_topic = "/pp/ubx/mga"
             self.get_logger().info(f"Subscribing to AssistNow topic: {assistnow_topic}")
             client.subscribe((assistnow_topic, 1))
-
-            # Subscribe to regional correction (EU, NA, etc.) or dynamic tile
             spartn_topic = "/pp/ip/eu"  # example: Europe region
             self.get_logger().info(f"Subscribing to correction topic: {spartn_topic}")
             client.subscribe((spartn_topic, 0))
@@ -178,12 +188,9 @@ class GPSNode(Node):
         """Handle incoming PPP correction data or keys from the broker."""
         topic = msg.topic
         payload = msg.payload
-
-        # If it's a SPARTN key or AssistNow data, send to GNSS
         if topic.startswith("/pp/ubx/"):
             self.write_to_gnss_device(payload)
             self.get_logger().info("Sent SPARTN key/AssistNow data to GNSS")
-        # If it's SPARTN correction data, also send to GNSS
         elif topic.startswith("/pp/ip/"):
             self.write_to_gnss_device(payload)
             self.get_logger().info("Sent SPARTN correction data to GNSS")
@@ -204,8 +211,6 @@ def main(args=None):
     rclpy.init(args=args)
     node = GPSNode()
     rclpy.spin(node)
-
-    # Cleanup
     node.destroy_node()
     rclpy.shutdown()
 

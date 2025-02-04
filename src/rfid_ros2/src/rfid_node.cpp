@@ -41,7 +41,7 @@ public:
 
     // Subscribe to the trigger topic.
     trigger_sub_ = this->create_subscription<std_msgs::msg::Empty>(
-      "rfid_trigger",
+      "trigger",
       10,
       std::bind(&RFIDNode::triggerCallback, this, std::placeholders::_1)
     );
