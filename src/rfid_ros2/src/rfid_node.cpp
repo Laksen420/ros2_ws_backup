@@ -1,209 +1,272 @@
-#include <chrono>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <memory>
-#include <sstream>
-#include <thread>
-#include <vector>
-#include <atomic>
-#include <mutex>
+/******************************************************************************
+ * read_tags_best_window.c
+ *
+ * Demonstrates a continuous, framed inventory with CAEN "Light" library,
+ * but only "captures" data for a specific 3-second window each time the user
+ * presses Enter. Afterwards, it picks the single best tag (highest RSSI).
+ *
+ * Steps:
+ *  1) Connect at 921600 baud, set read cycles = 0 (unlimited).
+ *  2) Add "Ant0" to "Source_0" (if needed), set protocol to EPC_C1G2.
+ *  3) Start continuous + framed inventory with RSSI included.
+ *  4) In the main loop:
+ *       - We *do* call GetFramedTag(...) in the background, but ignore results
+ *         until user presses Enter.
+ *       - On Enter, we do a separate 3s "capture window" where we store
+ *         all tags' RSSI and IDs.
+ *       - After 3 seconds, pick the best (highest RSSI) tag from that window,
+ *         and print it.
+ *       - Then go back to waiting for next Enter.
+ *  5) Ctrl+C (or SIGTERM) at any time => gracefully abort and disconnect.
+ *
+ * Expand the logic in pickBestTag() if you want to also measure how "constant"
+ * the RSSI is (less variance => more stable, etc.).
+ ******************************************************************************/
 
-#include "rclcpp/rclcpp.hpp"
-#include "std_msgs/msg/string.hpp"
-#include "std_msgs/msg/empty.hpp"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#include <signal.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/time.h>
 
-// Include the CAEN RFID SDK headers with C linkage.
-extern "C" {
-  #include "CAENRFIDLib_Light.h"
-  #include "host.h"
-  #include "IO_Light.h"
-  #include "Protocol_Light.h"
+#include "CAENRFIDLib_Light.h"
+#include "host.h"
+
+/* -----------
+   Global / Constants
+   -----------
+*/
+static volatile bool g_stopReading = false;  // set to true on SIGINT or SIGTERM
+
+#define CAPTURE_WINDOW_MS 3000  // 3 seconds
+#define MAX_SNAP_TAGS     200   // how many tag reads to store during the capture window
+
+/* A simple structure to store each reading in our 3s window. */
+typedef struct {
+    char    epc[2 * MAX_ID_LENGTH + 1]; // Tag ID as hex
+    int16_t rssi;
+} TagReading;
+
+/* 
+   --- NEW GLOBAL ---
+   We'll keep a pointer to the reader so that our exit-handler can use it.
+*/
+static CAENRFIDReader *g_reader_ptr = NULL;
+
+/* -----------
+   Helpers
+   -----------
+*/
+
+/* Called on SIGINT or SIGTERM to end the loop. */
+static void sigintHandler(int signum) {
+    (void)signum; // unused
+    fprintf(stderr, "\nSignal caught. Requesting to stop.\n");
+    g_stopReading = true;
 }
 
-using namespace std::chrono_literals;
-
-#define CAPTURE_WINDOW_MS 1000  // Capture window duration in milliseconds
-
-// Structure to store a captured tag reading.
-struct TagReading {
-  std::string epc;
-  int16_t rssi;
-};
-
-class RFIDNode : public rclcpp::Node
-{
-public:
-  RFIDNode() : Node("rfid_node"), capturing_(false)
-  {
-    // Publisher for the best tag result.
-    best_tag_pub_ = this->create_publisher<std_msgs::msg::String>("rfid_best_tag", 10);
-
-    // Subscribe to the trigger topic.
-    trigger_sub_ = this->create_subscription<std_msgs::msg::Empty>(
-      "trigger",
-      10,
-      std::bind(&RFIDNode::triggerCallback, this, std::placeholders::_1)
-    );
-
-    // Set up the RFID reader structure with host function pointers.
-    reader_.connect       = _connect;
-    reader_.disconnect    = _disconnect;
-    reader_.tx            = _tx;
-    reader_.rx            = _rx;
-    reader_.clear_rx_data = _clear_rx_data;
-    reader_.enable_irqs   = _enable_irqs;
-    reader_.disable_irqs  = _disable_irqs;
-
-    // RS232 parameters (adjust port if needed).
-    port_params_.com         = (char*)"/dev/ttyACM0";  // cast string literals if needed
-    port_params_.baudrate    = 921600;
-    port_params_.dataBits    = 8;
-    port_params_.stopBits    = 1;
-    port_params_.parity      = 0;
-    port_params_.flowControl = 0;
-
-    // Connect to the RFID reader.
-    CAENRFIDErrorCodes ec = CAENRFID_Connect(&reader_, CAENRFID_USB, &port_params_);
-    if (ec != CAENRFID_StatusOK) {
-      RCLCPP_ERROR(this->get_logger(), "Error connecting RFID reader: %d", ec);
-      return;
-    }
-    RCLCPP_INFO(this->get_logger(), "RFID reader connected");
-
-    // Delay to let the reader initialize.
-    std::this_thread::sleep_for(1s);
-
-    // Configure the reader.
-    ec = CAENRFID_SetSourceConfiguration(&reader_, (char*)"Source_0", CONFIG_READCYCLE, 0);
-    if (ec != CAENRFID_StatusOK) {
-      RCLCPP_WARN(this->get_logger(), "Warning: setting infinite cycles failed: %d", ec);
-    }
-    ec = CAENRFID_AddReadPoint(&reader_, (char*)"Source_0", (char*)"Ant0");
-    if (ec != CAENRFID_StatusOK) {
-      RCLCPP_WARN(this->get_logger(), "AddReadPoint returned %d (may be okay)", ec);
-    }
-    ec = CAENRFID_SetProtocol(&reader_, CAENRFID_EPC_C1G2);
-    if (ec != CAENRFID_StatusOK) {
-      RCLCPP_ERROR(this->get_logger(), "Error setting protocol: %d", ec);
-      CAENRFID_Disconnect(&reader_);
-      return;
-    }
-
-    // Start continuous inventory once.
-    uint16_t flags = RSSI | CONTINUOS | FRAMED;
-    ec = CAENRFID_InventoryTag(&reader_, (char*)"Source_0", 0, 0, 0, NULL, 0, flags, NULL, NULL);
-    if (ec != CAENRFID_StatusOK) {
-      RCLCPP_ERROR(this->get_logger(), "Error starting continuous inventory: %d", ec);
-      CAENRFID_Disconnect(&reader_);
-      return;
-    }
-    RCLCPP_INFO(this->get_logger(), "Continuous inventory started (RSSI enabled)");
-
-    // Start a timer to poll for tag data.
-    timer_ = this->create_wall_timer(10ms, std::bind(&RFIDNode::timerCallback, this));
-  }
-
-  ~RFIDNode() override
-  {
-    CAENRFID_Disconnect(&reader_);
-  }
-
-private:
-  // Trigger callback: simply start a capture window without restarting inventory.
-  void triggerCallback(const std_msgs::msg::Empty::SharedPtr /*msg*/)
-  {
-    RCLCPP_INFO(this->get_logger(), "Trigger received: starting capture window.");
-    capturing_ = true;
-    capture_start_ = std::chrono::steady_clock::now();
-    {
-      std::lock_guard<std::mutex> lock(snap_mutex_);
-      snap_data_.clear();
-    }
-  }
-
-  // Timer callback: poll continuously for framed tags during the capture window.
-  void timerCallback()
-  {
-    if (capturing_) {
-      CAENRFIDTag tag;
-      memset(&tag, 0, sizeof(tag));
-      bool has_tag = false;
-      bool has_result_code = false;
-      CAENRFIDErrorCodes ec = CAENRFID_GetFramedTag(&reader_, &has_tag, &tag, &has_result_code);
-      if (has_tag && ec == CAENRFID_StatusOK) {
-        TagReading reading;
-        reading.rssi = tag.RSSI;
-        reading.epc = convertTagIDtoHex(tag);
-        {
-          std::lock_guard<std::mutex> lock(snap_mutex_);
-          snap_data_.push_back(reading);
+/* Exit-handler: called when the process terminates normally.
+   It aborts any ongoing inventory and disconnects the reader. */
+static void cleanup(void) {
+    if (g_reader_ptr) {
+        printf("Cleaning up: aborting inventory...\n");
+        CAENRFIDErrorCodes ec = CAENRFID_InventoryAbort(g_reader_ptr);
+        if (ec == CAENRFID_StatusOK) {
+            // Optionally, you might drain leftover frames here.
+            printf("Inventory aborted.\n");
+        } else {
+            fprintf(stderr, "Error aborting inventory during cleanup: %d\n", ec);
         }
-      }
-      // Check if the capture window has elapsed.
-      auto now = std::chrono::steady_clock::now();
-      auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(now - capture_start_).count();
-      if (elapsed_ms >= CAPTURE_WINDOW_MS) {
-        processCaptureWindow();
-        capturing_ = false;
-      }
+        ec = CAENRFID_Disconnect(g_reader_ptr);
+        if (ec == CAENRFID_StatusOK) {
+            printf("Reader disconnected.\n");
+        } else {
+            fprintf(stderr, "Error disconnecting during cleanup: %d\n", ec);
+        }
     }
-  }
+}
 
-  // Convert tag ID to hex string.
-  std::string convertTagIDtoHex(const CAENRFIDTag &tag)
-  {
-    char buf[2 * MAX_ID_LENGTH + 1] = {0};
-    for (int i = 0; i < tag.Length; i++) {
-      sprintf(&buf[i * 2], "%02X", tag.ID[i]);
+/* Return the current time in milliseconds. */
+static uint64_t getCurrentTimeMs(void) {
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    return (uint64_t)tv.tv_sec * 1000ULL + (tv.tv_usec / 1000ULL);
+}
+
+/* Non-blocking check for user pressing ENTER. */
+static bool checkIfEnterPressed(void) {
+    struct timeval tv = {0, 0};
+    fd_set rfds;
+    FD_ZERO(&rfds);
+    FD_SET(STDIN_FILENO, &rfds);
+
+    int ret = select(STDIN_FILENO + 1, &rfds, NULL, NULL, &tv);
+    if (ret > 0) {
+        char c = getchar();
+        return (c == '\n');
     }
-    return std::string(buf);
-  }
+    return false;
+}
 
-  // Process the data captured during the window.
-  void processCaptureWindow()
-  {
-    std::lock_guard<std::mutex> lock(snap_mutex_);
-    if (snap_data_.empty()) {
-      RCLCPP_INFO(this->get_logger(), "No tags captured in the window.");
-      return;
+/* Convert the CAEN tag ID into hex string. */
+static void convertTagIDtoHex(const CAENRFIDTag* tag, char* outHex) {
+    for (int i = 0; i < tag->Length; i++) {
+        sprintf(&outHex[2*i], "%02X", tag->ID[i]);
     }
-    int best_index = 0;
-    int16_t best_rssi = snap_data_[0].rssi;
-    for (size_t i = 1; i < snap_data_.size(); ++i) {
-      if (snap_data_[i].rssi > best_rssi) {
-        best_rssi = snap_data_[i].rssi;
-        best_index = i;
-      }
+    outHex[2 * tag->Length] = '\0';
+}
+
+/* -----------
+   main logic
+   -----------
+*/
+int main(void) {
+    /* 1) Set up SIGINT and SIGTERM so we can gracefully quit. */
+    signal(SIGINT, sigintHandler);
+    signal(SIGTERM, sigintHandler);
+
+    /* 2) Prepare the CAENRFIDReader structure with your host function pointers. */
+    CAENRFIDReader reader = {
+        .connect       = _connect,
+        .disconnect    = _disconnect,
+        .tx            = _tx,
+        .rx            = _rx,
+        .clear_rx_data = _clear_rx_data,
+        .enable_irqs   = _enable_irqs,
+        .disable_irqs  = _disable_irqs
+    };
+
+    /* 3) Set connection parameters for your device. */
+    RS232_params port_params = {
+        .com         = "/dev/ttyACM0", // adjust as needed
+        .baudrate    = 921600,
+        .dataBits    = 8,
+        .stopBits    = 1,
+        .parity      = 0,
+        .flowControl = 0
+    };
+
+    /* 4) Connect to the device. */
+    CAENRFIDErrorCodes ec = CAENRFID_Connect(&reader, CAENRFID_USB, &port_params);
+    if (ec != CAENRFID_StatusOK) {
+        fprintf(stderr, "Error connecting: %d\n", ec);
+        return -1;
     }
-    auto message = std_msgs::msg::String();
-    message.data = snap_data_[best_index].epc;
-    best_tag_pub_->publish(message);
-    RCLCPP_INFO(this->get_logger(), "Best tag: EPC=%s, RSSI=%d",
-                message.data.c_str(), best_rssi);
-  }
+    printf("Connected.\n");
 
-  // ROS publishers, subscribers, and timer.
-  rclcpp::Publisher<std_msgs::msg::String>::SharedPtr best_tag_pub_;
-  rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr trigger_sub_;
-  rclcpp::TimerBase::SharedPtr timer_;
+    /* Register the reader pointer for cleanup and an exit-handler. */
+    g_reader_ptr = &reader;
+    atexit(cleanup);
 
-  // CAEN RFID reader and RS232 parameters.
-  CAENRFIDReader reader_;
-  RS232_params port_params_;
+    /* 5) Configure the source: unlimited read cycles. */
+    ec = CAENRFID_SetSourceConfiguration(&reader, "Source_0", CONFIG_READCYCLE, 0);
+    if (ec != CAENRFID_StatusOK) {
+        fprintf(stderr, "Warning: can't set infinite cycles: %d\n", ec);
+    }
 
-  // Capture window variables.
-  std::atomic<bool> capturing_;
-  std::chrono::steady_clock::time_point capture_start_;
-  std::vector<TagReading> snap_data_;
-  std::mutex snap_mutex_;
-};
+    /* 6) (Optional) Add read point "Ant0" to "Source_0". */
+    ec = CAENRFID_AddReadPoint(&reader, "Source_0", "Ant0");
+    if (ec != CAENRFID_StatusOK) {
+        fprintf(stderr, "AddReadPoint returned %d (may be okay)\n", ec);
+    }
 
-int main(int argc, char **argv)
-{
-  rclcpp::init(argc, argv);
-  auto node = std::make_shared<RFIDNode>();
-  rclcpp::spin(node);
-  rclcpp::shutdown();
-  return 0;
+    /* 7) Set the protocol to EPC_C1G2. */
+    ec = CAENRFID_SetProtocol(&reader, CAENRFID_EPC_C1G2);
+    if (ec != CAENRFID_StatusOK) {
+        fprintf(stderr, "Error setting protocol: %d\n", ec);
+        CAENRFID_Disconnect(&reader);
+        return -1;
+    }
+
+    /* 8) Start continuous + framed inventory (with RSSI enabled). */
+    uint16_t flags = RSSI | CONTINUOS | FRAMED; // 0x01 + 0x04 + 0x02 = 0x07
+    ec = CAENRFID_InventoryTag(
+        &reader,
+        "Source_0",
+        0, 0, 0, NULL, 0,
+        flags,
+        NULL,
+        NULL
+    );
+    if (ec != CAENRFID_StatusOK) {
+        fprintf(stderr, "Error starting continuous inventory: %d\n", ec);
+        CAENRFID_Disconnect(&reader);
+        return -1;
+    }
+    printf("Continuous inventory started (RSSI enabled).\n");
+    printf("Press ENTER to do a 3-second 'best tag' measurement, or Ctrl+C to exit.\n");
+
+    /* 9) Make stdin non-blocking. */
+    int oldFlags = fcntl(STDIN_FILENO, F_GETFL, 0);
+    fcntl(STDIN_FILENO, F_SETFL, oldFlags | O_NONBLOCK);
+
+    /* 10) Main loop: capture tags during a 3-second window when ENTER is pressed. */
+    bool capturing = false;       // Are we in the capture window?
+    uint64_t captureStart = 0;    // When capture began
+    TagReading snapData[MAX_SNAP_TAGS];
+    int snapCount = 0;
+
+    while (!g_stopReading) {
+        bool has_tag = false;
+        bool has_result_code = false;
+        CAENRFIDTag tag;
+        memset(&tag, 0, sizeof(tag));
+
+        ec = CAENRFID_GetFramedTag(&reader, &has_tag, &tag, &has_result_code);
+        if (has_result_code) {
+            printf("Inventory ended, code: %d\n", ec);
+            break;
+        }
+        if (ec != CAENRFID_StatusOK && !has_tag) {
+            /* Minor read error; ignore */
+        }
+
+        if (has_tag && capturing) {
+            if (snapCount < MAX_SNAP_TAGS) {
+                char epcHex[2 * MAX_ID_LENGTH + 1];
+                convertTagIDtoHex(&tag, epcHex);
+                strcpy(snapData[snapCount].epc, epcHex);
+                snapData[snapCount].rssi = tag.RSSI;
+                snapCount++;
+            }
+        }
+
+        if (capturing) {
+            uint64_t now = getCurrentTimeMs();
+            if (now - captureStart >= CAPTURE_WINDOW_MS) {
+                if (snapCount == 0) {
+                    printf("No tags captured in these 3 seconds.\n");
+                } else {
+                    int bestIndex = 0;
+                    int16_t bestRSSI = snapData[0].rssi;
+                    for (int i = 1; i < snapCount; i++) {
+                        if (snapData[i].rssi > bestRSSI) {
+                            bestIndex = i;
+                            bestRSSI = snapData[i].rssi;
+                        }
+                    }
+                    printf("BEST TAG from this 3s window:\n");
+                    printf("   EPC=%s, RSSI=%d\n", snapData[bestIndex].epc, bestRSSI);
+                }
+                capturing = false;
+            }
+        } else {
+            if (checkIfEnterPressed()) {
+                printf("Starting a 3s capture window...\n");
+                capturing = true;
+                captureStart = getCurrentTimeMs();
+                snapCount = 0;
+            }
+        }
+
+        usleep(10000);  // 10ms sleep to reduce CPU usage
+    }
+
+    /* When we exit the loop, the cleanup() registered with atexit() will run.
+       (You may also add additional logging here if desired.) */
+
+    return 0;
 }
