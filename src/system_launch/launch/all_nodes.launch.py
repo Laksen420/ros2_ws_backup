@@ -9,9 +9,9 @@ def generate_launch_description():
             name='rfid_node'
         ),
         Node(
-            package='trigger',
-            executable='trigger_node',
-            name='trigger_node'
+            package='lidar_trigger',
+            executable='lidar_trigger_node',
+            name='lidar_trigger_node'
         ),
         Node(
             package='gps_reader',

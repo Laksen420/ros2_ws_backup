@@ -17,7 +17,7 @@
  *       - After 3 seconds, pick the best (highest RSSI) tag from that window,
  *         and print it.
  *       - Then go back to waiting for next Enter.
- *  5) Ctrl+C at any time => gracefully abort and disconnect.
+ *  5) Ctrl+C or SIGTERM at any time => gracefully abort and disconnect.
  *
  * Expand the logic in pickBestTag() if you want to also measure how "constant"
  * the RSSI is (less variance => more stable, etc.).
@@ -39,7 +39,7 @@
    Global / Constants
    -----------
 */
-static volatile bool g_stopReading = false;  // set to true on Ctrl+C
+static volatile bool g_stopReading = false;  // set to true on SIGINT/SIGTERM
 
 #define CAPTURE_WINDOW_MS 1000  // 1 seconds
 #define MAX_SNAP_TAGS     200   // how many tag reads to store during the capture window
@@ -55,16 +55,14 @@ typedef struct {
    -----------
 */
 
-/* Called on Ctrl+C (SIGINT) to end the loop. */
+/* Called on SIGINT or SIGTERM to end the loop. */
 static void sigintHandler(int signum) {
     (void)signum; // unused
-    fprintf(stderr, "\nSIGINT caught. Requesting to stop.\n");
+    fprintf(stderr, "\nSignal caught. Requesting to stop.\n");
     g_stopReading = true;
 }
 
-/* Return the current time in milliseconds. 
-   This is identical or similar to get_ms_timestamp() in host.c, 
-   but we'll replicate it here. */
+/* Return the current time in milliseconds. */
 static uint64_t getCurrentTimeMs(void) {
     struct timeval tv;
     gettimeofday(&tv, NULL);
@@ -73,7 +71,6 @@ static uint64_t getCurrentTimeMs(void) {
 
 /* Non-blocking check for user pressing ENTER. */
 static bool checkIfEnterPressed(void) {
-    /* Use select() or just see if data is available on stdin. */
     struct timeval tv = {0, 0};
     fd_set rfds;
     FD_ZERO(&rfds);
@@ -81,14 +78,13 @@ static bool checkIfEnterPressed(void) {
 
     int ret = select(STDIN_FILENO + 1, &rfds, NULL, NULL, &tv);
     if (ret > 0) {
-        /* There's something to read. Check if it's an actual ENTER. */
-        char c = getchar();  // read one char
-        return (c == '\n');  // we only care if user typed ENTER
+        char c = getchar();
+        return (c == '\n');
     }
     return false;
 }
 
-/* Convert the CAEN tag ID into hex string. outHex must have enough space. */
+/* Convert the CAEN tag ID into hex string. */
 static void convertTagIDtoHex(const CAENRFIDTag* tag, char* outHex) {
     for (int i = 0; i < tag->Length; i++) {
         sprintf(&outHex[2*i], "%02X", tag->ID[i]);
@@ -101,10 +97,11 @@ static void convertTagIDtoHex(const CAENRFIDTag* tag, char* outHex) {
    -----------
 */
 int main(void) {
-    /* 1) set up SIGINT so we can gracefully quit on Ctrl+C */
+    /* 1) set up SIGINT and SIGTERM so we can gracefully quit */
     signal(SIGINT, sigintHandler);
+    signal(SIGTERM, sigintHandler);
 
-    /* 2) Prepare the CAENRFIDReader structure with your host function pointers */
+    /* 2) Prepare the CAENRFIDReader structure with host function pointers */
     CAENRFIDReader reader = {
         .connect       = _connect,
         .disconnect    = _disconnect,
@@ -125,7 +122,7 @@ int main(void) {
         .flowControl = 0
     };
 
-    /* Connect at 921600 baud, or your device's requirement. */
+    /* Connect at 921600 baud. */
     CAENRFIDErrorCodes ec = CAENRFID_Connect(&reader, CAENRFID_USB, &port_params);
     if (ec != CAENRFID_StatusOK) {
         fprintf(stderr, "Error connecting: %d\n", ec);
@@ -133,13 +130,13 @@ int main(void) {
     }
     printf("Connected.\n");
 
-    /* Set unlimited read cycles => 0, so continuous inventory won't end by itself */
+    /* Set unlimited read cycles => 0 */
     ec = CAENRFID_SetSourceConfiguration(&reader, "Source_0", CONFIG_READCYCLE, 0);
     if (ec != CAENRFID_StatusOK) {
         fprintf(stderr, "Warning: can't set infinite cycles: %d\n", ec);
     }
 
-    /* (optional) Add read point "Ant0" to "Source_0" if needed */
+    /* (optional) Add read point "Ant0" to "Source_0" */
     ec = CAENRFID_AddReadPoint(&reader, "Source_0", "Ant0");
     if (ec != CAENRFID_StatusOK) {
         fprintf(stderr, "AddReadPoint returned %d (may be okay)\n", ec);
@@ -153,15 +150,14 @@ int main(void) {
         return -1;
     }
 
-    /* Start continuous + framed inventory,
-       also enable RSSI to get Tag->RSSI */
-    uint16_t flags = RSSI | CONTINUOS | FRAMED; // = 0x01 + 0x04 + 0x02 = 0x07
+    /* Start continuous + framed inventory with RSSI enabled. */
+    uint16_t flags = RSSI | CONTINUOS | FRAMED;
     ec = CAENRFID_InventoryTag(
         &reader,
-        "Source_0", 
-        0,0,0, NULL,0, 
+        "Source_0",
+        0, 0, 0, NULL, 0,
         flags,
-        NULL, 
+        NULL,
         NULL
     );
     if (ec != CAENRFID_StatusOK) {
@@ -172,22 +168,17 @@ int main(void) {
     printf("Continuous inventory started (RSSI enabled).\n");
     printf("Press ENTER to do a 3-second 'best tag' measurement, or Ctrl+C to exit.\n");
 
-    /* Make stdin non-blocking so we can detect Enter without pausing. */
+    /* Make stdin non-blocking so we can detect ENTER without pausing. */
     int oldFlags = fcntl(STDIN_FILENO, F_GETFL, 0);
     fcntl(STDIN_FILENO, F_SETFL, oldFlags | O_NONBLOCK);
 
-    /* 3) Main loop: 
-          We keep calling GetFramedTag(...) so the reader sees us as "active."
-          We ignore those results unless we are in a capture window.
-          If user presses ENTER, we do a 3s capturing. */
-
-    bool capturing = false;       // Are we in the 3-second capture window?
-    uint64_t captureStart = 0;    // when capture began
+    /* 3) Main loop: poll for tags and capture a 3s window on ENTER. */
+    bool capturing = false;
+    uint64_t captureStart = 0;
     TagReading snapData[MAX_SNAP_TAGS];
     int snapCount = 0;
 
     while (!g_stopReading) {
-        /* Check for new framed tag. Always call it to keep reading. */
         bool has_tag = false;
         bool has_result_code = false;
         CAENRFIDTag tag;
@@ -195,41 +186,32 @@ int main(void) {
 
         ec = CAENRFID_GetFramedTag(&reader, &has_tag, &tag, &has_result_code);
         if (has_result_code) {
-            // The inventory ended on its own
             printf("Inventory ended, code: %d\n", ec);
             break;
         }
         if (ec != CAENRFID_StatusOK && !has_tag) {
-            // Possibly a minor read error
-            // Not necessarily fatal
-            // fprintf(stderr, "GetFramedTag error: %d\n", ec);
+            /* Minor read error; ignore */
         }
 
         if (has_tag && capturing) {
-            /* We are in the 3-second capture window. Store this read. */
             if (snapCount < MAX_SNAP_TAGS) {
-                /* Convert to hex, store with RSSI. */
                 char epcHex[2*MAX_ID_LENGTH + 1];
                 convertTagIDtoHex(&tag, epcHex);
-
                 strcpy(snapData[snapCount].epc, epcHex);
                 snapData[snapCount].rssi = tag.RSSI;
                 snapCount++;
             }
         }
 
-        /* If we are capturing, check if 3s have passed. */
         if (capturing) {
             uint64_t now = getCurrentTimeMs();
             if (now - captureStart >= CAPTURE_WINDOW_MS) {
-                /* Time's up: pick the best tag. */
                 if (snapCount == 0) {
                     printf("No tags captured in these 3 seconds.\n");
                 } else {
-                    /* find highest RSSI in snapData */
                     int bestIndex = 0;
                     int16_t bestRSSI = snapData[0].rssi;
-                    for (int i=1; i < snapCount; i++) {
+                    for (int i = 1; i < snapCount; i++) {
                         if (snapData[i].rssi > bestRSSI) {
                             bestIndex = i;
                             bestRSSI = snapData[i].rssi;
@@ -238,12 +220,9 @@ int main(void) {
                     printf("BEST TAG from this 3s window:\n");
                     printf("   EPC=%s, RSSI=%d\n", snapData[bestIndex].epc, bestRSSI);
                 }
-                /* end capturing mode */
                 capturing = false;
             }
-        } 
-        else {
-            /* Not currently capturing -> check if user just pressed ENTER to start. */
+        } else {
             if (checkIfEnterPressed()) {
                 printf("Starting a 3s capture window...\n");
                 capturing = true;
@@ -252,35 +231,23 @@ int main(void) {
             }
         }
 
-        usleep(10000);  // 10ms to reduce CPU usage
+        usleep(10000);  // 10ms delay
     }
 
-    /* 4) If we exit the loop, we do an abort and then disconnect. */
+    /* 4) Shutdown procedure:
+       - Abort the inventory.
+       - Wait for a full second.
+       - Clear any pending data.
+       - Then disconnect. */
     printf("Aborting inventory...\n");
     ec = CAENRFID_InventoryAbort(&reader);
     if (ec == CAENRFID_StatusOK) {
-        // We must read leftover frames until we see result_code
-        while (true) {
-            bool has_tag = false, has_rc = false;
-            CAENRFIDTag tag;
-            memset(&tag, 0, sizeof(tag));
-
-            ec = CAENRFID_GetFramedTag(&reader, &has_tag, &tag, &has_rc);
-            if (has_rc) {
-                printf("Final code after abort: %d\n", ec);
-                break;
-            }
-            if (ec != CAENRFID_StatusOK && !has_tag) {
-                // error or no data, presumably done
-                break;
-            }
-            // if has_tag => leftover frames
-        }
+        sleep(1);  // Wait 1 second for abort to complete
+        reader.clear_rx_data(reader._port_handle);
     } else {
         fprintf(stderr, "Error aborting: %d\n", ec);
     }
 
-    /* Finally, disconnect. */
     ec = CAENRFID_Disconnect(&reader);
     if (ec == CAENRFID_StatusOK) {
         printf("Disconnected.\n");
