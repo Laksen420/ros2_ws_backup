@@ -13,7 +13,6 @@ find_package(std_msgs REQUIRED)
 
 # Include directories (add both the package include and the sdk folder)
 include_directories(
-  include
   ${CMAKE_CURRENT_SOURCE_DIR}/sdk
 )
 
@@ -34,8 +33,8 @@ install(TARGETS
 )
 
 # Install header files if needed
-install(DIRECTORY include/
-  DESTINATION include
-)
+#install(DIRECTORY include/
+#  DESTINATION include
+#)
 
 ament_package()
