@@ -56,7 +56,7 @@ public:
     reader_.disable_irqs  = _disable_irqs;
 
     // RS232 parameters (adjust port if needed).
-    port_params_.com         = (char*)"/dev/ttyACM0";  // cast string literals if needed
+    port_params_.com         = (char*)"/dev/ttyACM1";  // adjust if needed
     port_params_.baudrate    = 921600;
     port_params_.dataBits    = 8;
     port_params_.stopBits    = 1;
@@ -90,7 +90,7 @@ public:
       return;
     }
 
-    // Start continuous inventory once.
+    // Start continuous inventory (framed inventory with RSSI enabled).
     uint16_t flags = RSSI | CONTINUOS | FRAMED;
     ec = CAENRFID_InventoryTag(&reader_, (char*)"Source_0", 0, 0, 0, NULL, 0, flags, NULL, NULL);
     if (ec != CAENRFID_StatusOK) {
@@ -106,11 +106,25 @@ public:
 
   ~RFIDNode() override
   {
-    CAENRFID_Disconnect(&reader_);
+    // Abort the continuous inventory before disconnecting.
+    CAENRFIDErrorCodes ec = CAENRFID_InventoryAbort(&reader_);
+    if (ec != CAENRFID_StatusOK) {
+      RCLCPP_WARN(this->get_logger(), "InventoryAbort returned error code: %d", ec);
+    } else {
+      RCLCPP_INFO(this->get_logger(), "Continuous inventory aborted successfully.");
+    }
+
+    // Now safely disconnect the RFID reader.
+    ec = CAENRFID_Disconnect(&reader_);
+    if (ec != CAENRFID_StatusOK) {
+      RCLCPP_ERROR(this->get_logger(), "Error disconnecting RFID reader: %d", ec);
+    } else {
+      RCLCPP_INFO(this->get_logger(), "RFID reader disconnected successfully.");
+    }
   }
 
 private:
-  // Trigger callback: simply start a capture window without restarting inventory.
+  // Trigger callback: start a capture window without restarting inventory.
   void triggerCallback(const std_msgs::msg::Empty::SharedPtr /*msg*/)
   {
     RCLCPP_INFO(this->get_logger(), "Trigger received: starting capture window.");
@@ -150,7 +164,7 @@ private:
     }
   }
 
-  // Convert tag ID to hex string.
+  // Convert tag ID to a hex string.
   std::string convertTagIDtoHex(const CAENRFIDTag &tag)
   {
     char buf[2 * MAX_ID_LENGTH + 1] = {0};
