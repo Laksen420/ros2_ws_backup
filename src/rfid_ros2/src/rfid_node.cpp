@@ -56,7 +56,7 @@ public:
     reader_.disable_irqs  = _disable_irqs;
 
     // RS232 parameters (adjust port if needed).
-    port_params_.com         = (char*)"/dev/ttyACM1";  // adjust if needed
+    port_params_.com         = (char*)"/dev/ttyACM0";  // adjust if needed
     port_params_.baudrate    = 921600;
     port_params_.dataBits    = 8;
     port_params_.stopBits    = 1;
@@ -71,51 +71,29 @@ public:
     }
     RCLCPP_INFO(this->get_logger(), "RFID reader connected");
 
-    // Delay to let the reader initialize.
-    std::this_thread::sleep_for(1s);
+    // NOTE: We do not call CAENRFID_SetSourceConfiguration, CAENRFID_AddReadPoint,
+    // or CAENRFID_SetProtocol. The Light C SDK sample code in the full SDK typically
+    // gets the logical source and then uses its default configuration.
+    //
+    // This avoids error code -7 and keeps the reader in a state where it can be reconnected.
 
-    // Configure the reader.
-    ec = CAENRFID_SetSourceConfiguration(&reader_, (char*)"Source_0", CONFIG_READCYCLE, 0);
-    if (ec != CAENRFID_StatusOK) {
-      RCLCPP_WARN(this->get_logger(), "Warning: setting infinite cycles failed: %d", ec);
-    }
-    ec = CAENRFID_AddReadPoint(&reader_, (char*)"Source_0", (char*)"Ant0");
-    if (ec != CAENRFID_StatusOK) {
-      RCLCPP_WARN(this->get_logger(), "AddReadPoint returned %d (may be okay)", ec);
-    }
-    ec = CAENRFID_SetProtocol(&reader_, CAENRFID_EPC_C1G2);
-    if (ec != CAENRFID_StatusOK) {
-      RCLCPP_ERROR(this->get_logger(), "Error setting protocol: %d", ec);
-      CAENRFID_Disconnect(&reader_);
-      return;
-    }
-
-    // Start continuous inventory (framed inventory with RSSI enabled).
-    uint16_t flags = RSSI | CONTINUOS | FRAMED;
-    ec = CAENRFID_InventoryTag(&reader_, (char*)"Source_0", 0, 0, 0, NULL, 0, flags, NULL, NULL);
-    if (ec != CAENRFID_StatusOK) {
-      RCLCPP_ERROR(this->get_logger(), "Error starting continuous inventory: %d", ec);
-      CAENRFID_Disconnect(&reader_);
-      return;
-    }
-    RCLCPP_INFO(this->get_logger(), "Continuous inventory started (RSSI enabled)");
-
-    // Start a timer to poll for tag data.
+    // Start a timer to poll for tag data (this callback is active only during a capture window).
     timer_ = this->create_wall_timer(10ms, std::bind(&RFIDNode::timerCallback, this));
   }
 
   ~RFIDNode() override
   {
-    // Abort the continuous inventory before disconnecting.
-    CAENRFIDErrorCodes ec = CAENRFID_InventoryAbort(&reader_);
-    if (ec != CAENRFID_StatusOK) {
-      RCLCPP_WARN(this->get_logger(), "InventoryAbort returned error code: %d", ec);
-    } else {
-      RCLCPP_INFO(this->get_logger(), "Continuous inventory aborted successfully.");
+    // If a capture is still in progress, try to abort it.
+    if (capturing_) {
+      CAENRFIDErrorCodes ec = CAENRFID_InventoryAbort(&reader_);
+      if (ec != CAENRFID_StatusOK) {
+        RCLCPP_WARN(this->get_logger(), "InventoryAbort returned error code: %d", ec);
+      } else {
+        RCLCPP_INFO(this->get_logger(), "Continuous inventory aborted successfully.");
+      }
     }
-
-    // Now safely disconnect the RFID reader.
-    ec = CAENRFID_Disconnect(&reader_);
+    // Disconnect the reader.
+    CAENRFIDErrorCodes ec = CAENRFID_Disconnect(&reader_);
     if (ec != CAENRFID_StatusOK) {
       RCLCPP_ERROR(this->get_logger(), "Error disconnecting RFID reader: %d", ec);
     } else {
@@ -124,9 +102,14 @@ public:
   }
 
 private:
-  // Trigger callback: start a capture window without restarting inventory.
+  // Trigger callback: start a capture window and begin inventory.
   void triggerCallback(const std_msgs::msg::Empty::SharedPtr /*msg*/)
   {
+    // If a capture is already in progress, ignore the new trigger.
+    if (capturing_) {
+      RCLCPP_WARN(this->get_logger(), "Capture already in progress, ignoring trigger.");
+      return;
+    }
     RCLCPP_INFO(this->get_logger(), "Trigger received: starting capture window.");
     capturing_ = true;
     capture_start_ = std::chrono::steady_clock::now();
@@ -134,9 +117,18 @@ private:
       std::lock_guard<std::mutex> lock(snap_mutex_);
       snap_data_.clear();
     }
+    // Start continuous inventory only when triggered.
+    // Use flags for RSSI, continuous, and framed inventory.
+    uint16_t flags = RSSI | CONTINUOS | FRAMED;
+    CAENRFIDErrorCodes ec = CAENRFID_InventoryTag(&reader_, (char*)"Source_0", 0, 0, 0, NULL, 0, flags, NULL, NULL);
+    if (ec != CAENRFID_StatusOK) {
+      RCLCPP_ERROR(this->get_logger(), "Error starting continuous inventory: %d", ec);
+    } else {
+      RCLCPP_INFO(this->get_logger(), "Continuous inventory started after trigger.");
+    }
   }
 
-  // Timer callback: poll continuously for framed tags during the capture window.
+  // Timer callback: poll for framed tags while capture is active.
   void timerCallback()
   {
     if (capturing_) {
@@ -158,6 +150,13 @@ private:
       auto now = std::chrono::steady_clock::now();
       auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(now - capture_start_).count();
       if (elapsed_ms >= CAPTURE_WINDOW_MS) {
+        // Stop continuous inventory.
+        CAENRFIDErrorCodes ec = CAENRFID_InventoryAbort(&reader_);
+        if (ec != CAENRFID_StatusOK) {
+          RCLCPP_WARN(this->get_logger(), "InventoryAbort returned error code: %d", ec);
+        } else {
+          RCLCPP_INFO(this->get_logger(), "Continuous inventory aborted after capture window.");
+        }
         processCaptureWindow();
         capturing_ = false;
       }
