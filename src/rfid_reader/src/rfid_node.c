@@ -117,7 +117,7 @@ int main(void) {
 
     /* Connect parameters for your device. */
     RS232_params port_params = {
-        .com         = "/dev/ttyACM1", // adjust as needed
+        .com         = "/dev/ttyACM0", // adjust as needed
         .baudrate    = 921600,
         .dataBits    = 8,
         .stopBits    = 1,

@@ -8,6 +8,9 @@
 #include <vector>
 #include <atomic>
 #include <mutex>
+#include <fcntl.h>
+#include <termios.h>
+#include <unistd.h>
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
@@ -55,29 +58,19 @@ public:
     reader_.enable_irqs   = _enable_irqs;
     reader_.disable_irqs  = _disable_irqs;
 
-    // RS232 parameters (adjust port if needed).
-    port_params_.com         = (char*)"/dev/ttyACM0";  // adjust if needed
-    port_params_.baudrate    = 921600;
-    port_params_.dataBits    = 8;
-    port_params_.stopBits    = 1;
-    port_params_.parity      = 0;
-    port_params_.flowControl = 0;
+    // Connect to the reader, trying both possible ports
+    connectReader();
 
-    // Connect to the RFID reader.
-    CAENRFIDErrorCodes ec = CAENRFID_Connect(&reader_, CAENRFID_USB, &port_params_);
-    if (ec != CAENRFID_StatusOK) {
-      RCLCPP_ERROR(this->get_logger(), "Error connecting RFID reader: %d", ec);
-      return;
-    }
-    RCLCPP_INFO(this->get_logger(), "RFID reader connected");
+    // Set up non-blocking stdin for Enter key detection
+    struct termios ttystate;
+    tcgetattr(STDIN_FILENO, &ttystate);
+    ttystate.c_lflag &= ~ICANON; // Turn off canonical mode
+    tcsetattr(STDIN_FILENO, TCSANOW, &ttystate);
+    fcntl(STDIN_FILENO, F_SETFL, fcntl(STDIN_FILENO, F_GETFL) | O_NONBLOCK);
 
-    // NOTE: We do not call CAENRFID_SetSourceConfiguration, CAENRFID_AddReadPoint,
-    // or CAENRFID_SetProtocol. The Light C SDK sample code in the full SDK typically
-    // gets the logical source and then uses its default configuration.
-    //
-    // This avoids error code -7 and keeps the reader in a state where it can be reconnected.
+    RCLCPP_INFO(this->get_logger(), "RFID reader ready. Press ENTER to trigger a tag scan.");
 
-    // Start a timer to poll for tag data (this callback is active only during a capture window).
+    // Start a timer to poll for tag data and check for Enter key
     timer_ = this->create_wall_timer(10ms, std::bind(&RFIDNode::timerCallback, this));
   }
 
@@ -93,15 +86,102 @@ public:
       }
     }
     // Disconnect the reader.
-    CAENRFIDErrorCodes ec = CAENRFID_Disconnect(&reader_);
-    if (ec != CAENRFID_StatusOK) {
-      RCLCPP_ERROR(this->get_logger(), "Error disconnecting RFID reader: %d", ec);
-    } else {
-      RCLCPP_INFO(this->get_logger(), "RFID reader disconnected successfully.");
+    if (reader_connected_) {
+      CAENRFIDErrorCodes ec = CAENRFID_Disconnect(&reader_);
+      if (ec != CAENRFID_StatusOK) {
+        RCLCPP_ERROR(this->get_logger(), "Error disconnecting RFID reader: %d", ec);
+      } else {
+        RCLCPP_INFO(this->get_logger(), "RFID reader disconnected successfully.");
+      }
     }
   }
 
 private:
+  // Try to connect to the reader on multiple possible ports
+  bool connectReader() {
+    // RS232 parameters with correct port
+    port_params_.baudrate    = 921600;
+    port_params_.dataBits    = 8;
+    port_params_.stopBits    = 1;
+    port_params_.parity      = 0;
+    port_params_.flowControl = 0;
+
+    // Try the symlink first, then fall back to ACM ports
+    const char* ports[] = {"/dev/ttyRFID", "/dev/ttyACM0", "/dev/ttyACM1"};
+    bool connected = false;
+    
+    for (const char* port : ports) {
+      // Skip ports that don't exist
+      if (access(port, F_OK) != 0) {
+        RCLCPP_DEBUG(this->get_logger(), "Port %s doesn't exist, skipping", port);
+        continue;
+      }
+      
+      port_params_.com = (char*)port;
+      RCLCPP_INFO(this->get_logger(), "Trying to connect to RFID reader at %s...", port);
+      
+      CAENRFIDErrorCodes ec = CAENRFID_Connect(&reader_, CAENRFID_USB, &port_params_);
+      if (ec == CAENRFID_StatusOK) {
+        RCLCPP_INFO(this->get_logger(), "RFID reader connected at %s", port);
+        connected = true;
+        reader_connected_ = true;
+        
+        // Save which port worked
+        active_port_ = port;
+        
+        // Configure reader
+        ec = CAENRFID_SetSourceConfiguration(&reader_, (char*)"Source_0", CONFIG_READCYCLE, 0);
+        if (ec != CAENRFID_StatusOK) {
+          RCLCPP_WARN(this->get_logger(), "Warning: can't set infinite cycles: %d", ec);
+        }
+        
+        ec = CAENRFID_AddReadPoint(&reader_, (char*)"Source_0", (char*)"Ant0");
+        if (ec != CAENRFID_StatusOK) {
+          RCLCPP_WARN(this->get_logger(), "AddReadPoint returned %d (may be okay)", ec);
+        }
+        
+        ec = CAENRFID_SetProtocol(&reader_, CAENRFID_EPC_C1G2);
+        if (ec != CAENRFID_StatusOK) {
+          RCLCPP_ERROR(this->get_logger(), "Error setting protocol: %d", ec);
+          return false;
+        }
+        
+        break;
+      }
+    }
+    
+    return connected;
+  }
+
+  bool checkIfEnterPressed() {
+    fd_set rfds;
+    struct timeval tv = {0, 0}; // Non-blocking check
+    
+    FD_ZERO(&rfds);
+    FD_SET(STDIN_FILENO, &rfds);
+    
+    int ret = select(STDIN_FILENO + 1, &rfds, NULL, NULL, &tv);
+    if (ret > 0) {
+      char c = getchar(); // Read one char
+      return (c == '\n'); // Return true if Enter was pressed
+    }
+    return false; 
+  }
+
+  // Try to reconnect if connection is lost
+  bool tryReconnect() {
+    RCLCPP_INFO(this->get_logger(), "Trying to reconnect...");
+    
+    // If already connected, disconnect first
+    if (reader_connected_) {
+      CAENRFID_Disconnect(&reader_);
+      reader_connected_ = false;
+      std::this_thread::sleep_for(100ms);
+    }
+    
+    return connectReader();
+  }
+
   // Trigger callback: start a capture window and begin inventory.
   void triggerCallback(const std_msgs::msg::Empty::SharedPtr /*msg*/)
   {
@@ -110,6 +190,15 @@ private:
       RCLCPP_WARN(this->get_logger(), "Capture already in progress, ignoring trigger.");
       return;
     }
+    
+    // If reader is not connected or the current port is gone, try to reconnect
+    if (!reader_connected_ || (access(active_port_.c_str(), F_OK) != 0)) {
+      if (!tryReconnect()) {
+        RCLCPP_ERROR(this->get_logger(), "Failed to reconnect, cannot trigger.");
+        return;
+      }
+    }
+    
     RCLCPP_INFO(this->get_logger(), "Trigger received: starting capture window.");
     capturing_ = true;
     capture_start_ = std::chrono::steady_clock::now();
@@ -117,12 +206,22 @@ private:
       std::lock_guard<std::mutex> lock(snap_mutex_);
       snap_data_.clear();
     }
+    
     // Start continuous inventory only when triggered.
     // Use flags for RSSI, continuous, and framed inventory.
     uint16_t flags = RSSI | CONTINUOS | FRAMED;
     CAENRFIDErrorCodes ec = CAENRFID_InventoryTag(&reader_, (char*)"Source_0", 0, 0, 0, NULL, 0, flags, NULL, NULL);
     if (ec != CAENRFID_StatusOK) {
       RCLCPP_ERROR(this->get_logger(), "Error starting continuous inventory: %d", ec);
+      capturing_ = false;
+      
+      // If connection error, try to reconnect
+      if (ec == -2 || ec == -7) {
+        RCLCPP_INFO(this->get_logger(), "Trying to reconnect due to error %d.", ec);
+        if (tryReconnect()) {
+          RCLCPP_INFO(this->get_logger(), "Reconnected. Try triggering again.");
+        }
+      }
     } else {
       RCLCPP_INFO(this->get_logger(), "Continuous inventory started after trigger.");
     }
@@ -131,6 +230,15 @@ private:
   // Timer callback: poll for framed tags while capture is active.
   void timerCallback()
   {
+    // First check if Enter was pressed when not already capturing
+    if (!capturing_ && checkIfEnterPressed()) {
+      RCLCPP_INFO(this->get_logger(), "ENTER pressed: triggering tag scan.");
+      // Create an empty message to trigger the scan
+      auto empty_msg = std::make_shared<std_msgs::msg::Empty>();
+      // Call the trigger callback directly
+      triggerCallback(empty_msg);
+    }
+    
     if (capturing_) {
       CAENRFIDTag tag;
       memset(&tag, 0, sizeof(tag));
@@ -154,8 +262,11 @@ private:
         CAENRFIDErrorCodes ec = CAENRFID_InventoryAbort(&reader_);
         if (ec != CAENRFID_StatusOK) {
           RCLCPP_WARN(this->get_logger(), "InventoryAbort returned error code: %d", ec);
+          if (ec == -7) {
+            RCLCPP_INFO(this->get_logger(), "Ignoring error -7 at end of capture window, likely a reset condition.");
+          }
         } else {
-          RCLCPP_INFO(this->get_logger(), "Continuous inventory aborted after capture window.");
+          RCLCPP_INFO(this->get_logger(), "Continuous inventory aborted successfully.");
         }
         processCaptureWindow();
         capturing_ = false;
@@ -206,7 +317,9 @@ private:
   RS232_params port_params_;
 
   // Capture window variables.
-  std::atomic<bool> capturing_;
+  std::atomic<bool> capturing_{false};
+  std::atomic<bool> reader_connected_{false};
+  std::string active_port_;
   std::chrono::steady_clock::time_point capture_start_;
   std::vector<TagReading> snap_data_;
   std::mutex snap_mutex_;
