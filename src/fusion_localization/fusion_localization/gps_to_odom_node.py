@@ -86,8 +86,8 @@ class GpsToOdom(Node):
         # Covariance (adjust based on your GPS accuracy)
         # Assume 2m accuracy for position
         pos_cov = 2.0**2
-        odom.pose.covariance[0] = pos_cov  # x
-        odom.pose.covariance[7] = pos_cov  # y
+        odom.pose.covariance[0] = 5.0  # x
+        odom.pose.covariance[7] = 5.0  # y
         odom.pose.covariance[14] = 10.0    # z (less certain)
         
         # Publish odometry
