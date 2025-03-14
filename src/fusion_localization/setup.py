@@ -1,9 +1,7 @@
 from setuptools import setup
 import os
 from glob import glob
-
 package_name = 'fusion_localization'
-
 setup(
     name=package_name,
     version='0.0.1',
@@ -29,7 +27,10 @@ setup(
     entry_points={
         'console_scripts': [
             'gps_to_odom_node.py = fusion_localization.gps_to_odom_node:main',
-            'gps_simulator_node.py = fusion_localization.gps_simulator_node:main',
+            # Remove the incorrect reference to gps_node that belongs to another package
+            # 'gps_node.py = fusion_localization.gps_node:main',  
+            # Uncomment if you want to use the simulator again
+            # 'gps_simulator_node.py = fusion_localization.gps_simulator_node:main',
         ],
     },
 )

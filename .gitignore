@@ -5,3 +5,4 @@ log/
 __pycache__/
 src/gps_reader/gps_reader/certs/*.crt
 src/gps_reader/gps_reader/certs/*.pem
+src/schemas/
