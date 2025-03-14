@@ -1,0 +1,5539 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Recorded Path",
+        "timestamp": "2025-03-13T18:22:47.828218",
+        "points": [
+          {
+            "latitude": 59.91265755120483,
+            "longitude": 10.745942078597347,
+            "altitude": 0.0,
+            "timestamp": 1741890053.111712,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91270897828255,
+            "longitude": 10.746278292316985,
+            "altitude": 0.0,
+            "timestamp": 1741890053.4934337,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91266847661543,
+            "longitude": 10.74593220581894,
+            "altitude": 0.0,
+            "timestamp": 1741890053.6210177,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277940544986,
+            "longitude": 10.746183788596033,
+            "altitude": 0.0,
+            "timestamp": 1741890053.6504698,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91264985765593,
+            "longitude": 10.74595132342027,
+            "altitude": 0.0,
+            "timestamp": 1741890054.1032267,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912717856924935,
+            "longitude": 10.746275613546493,
+            "altitude": 0.0,
+            "timestamp": 1741890054.4930987,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912660232530385,
+            "longitude": 10.745939325391403,
+            "altitude": 0.0,
+            "timestamp": 1741890054.6288223,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278320242617,
+            "longitude": 10.74616755615457,
+            "altitude": 0.0,
+            "timestamp": 1741890054.6507568,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91264266727632,
+            "longitude": 10.745962051374471,
+            "altitude": 0.0,
+            "timestamp": 1741890055.1041243,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912726555894615,
+            "longitude": 10.746271180768966,
+            "altitude": 0.0,
+            "timestamp": 1741890055.4920857,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912652391214046,
+            "longitude": 10.745948045558695,
+            "altitude": 0.0,
+            "timestamp": 1741890055.6237824,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278616774982,
+            "longitude": 10.746150650188127,
+            "altitude": 0.0,
+            "timestamp": 1741890055.6506252,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91263604818445,
+            "longitude": 10.745974160721273,
+            "altitude": 0.0,
+            "timestamp": 1741890056.103149,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912734991209476,
+            "longitude": 10.74626503663792,
+            "altitude": 0.0,
+            "timestamp": 1741890056.491944,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91264502412766,
+            "longitude": 10.745958285364091,
+            "altitude": 0.0,
+            "timestamp": 1741890056.623046,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912788271963095,
+            "longitude": 10.746133240393048,
+            "altitude": 0.0,
+            "timestamp": 1741890056.649624,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912630070802216,
+            "longitude": 10.745987521941577,
+            "altitude": 0.0,
+            "timestamp": 1741890057.1033332,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912743076789496,
+            "longitude": 10.746257243314865,
+            "altitude": 0.0,
+            "timestamp": 1741890057.492007,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91263820693874,
+            "longitude": 10.745969939908981,
+            "altitude": 0.0,
+            "timestamp": 1741890057.6233308,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912789494671706,
+            "longitude": 10.746115494044416,
+            "altitude": 0.0,
+            "timestamp": 1741890057.6501617,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912624790278926,
+            "longitude": 10.74600201129719,
+            "altitude": 0.0,
+            "timestamp": 1741890058.1038523,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91275072906636,
+            "longitude": 10.74624788250534,
+            "altitude": 0.0,
+            "timestamp": 1741890058.4918706,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91263200592372,
+            "longitude": 10.745982896214551,
+            "altitude": 0.0,
+            "timestamp": 1741890058.6229506,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278982303491,
+            "longitude": 10.74609759630279,
+            "altitude": 0.0,
+            "timestamp": 1741890058.6494071,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262026191986,
+            "longitude": 10.746017477895572,
+            "altitude": 0.0,
+            "timestamp": 1741890059.1036618,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912757877019274,
+            "longitude": 10.74623704126676,
+            "altitude": 0.0,
+            "timestamp": 1741890059.4902303,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262648516918,
+            "longitude": 10.745997020514308,
+            "altitude": 0.0,
+            "timestamp": 1741890059.6218004,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278925397211,
+            "longitude": 10.746079720455235,
+            "altitude": 0.0,
+            "timestamp": 1741890059.649846,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126165302577,
+            "longitude": 10.746033768935392,
+            "altitude": 0.0,
+            "timestamp": 1741890060.103594,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912764447882225,
+            "longitude": 10.746224828216759,
+            "altitude": 0.0,
+            "timestamp": 1741890060.4916627,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262169764782,
+            "longitude": 10.746012177790613,
+            "altitude": 0.0,
+            "timestamp": 1741890060.6230555,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278779324167,
+            "longitude": 10.746062048758025,
+            "altitude": 0.0,
+            "timestamp": 1741890060.64999,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261363274421,
+            "longitude": 10.746050720409364,
+            "altitude": 0.0,
+            "timestamp": 1741890061.105147,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9127703732194,
+            "longitude": 10.746211370704849,
+            "altitude": 0.0,
+            "timestamp": 1741890061.4919622,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261769390878,
+            "longitude": 10.746028207800295,
+            "altitude": 0.0,
+            "timestamp": 1741890061.6240044,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912785454154545,
+            "longitude": 10.746044748379438,
+            "altitude": 0.0,
+            "timestamp": 1741890061.6521084,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261159764873,
+            "longitude": 10.746068168207916,
+            "altitude": 0.0,
+            "timestamp": 1741890062.1032898,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277559620083,
+            "longitude": 10.746196798126324,
+            "altitude": 0.0,
+            "timestamp": 1741890062.4919932,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126145120378,
+            "longitude": 10.746044956867436,
+            "altitude": 0.0,
+            "timestamp": 1741890062.6221025,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278226309449,
+            "longitude": 10.74602801198054,
+            "altitude": 0.0,
+            "timestamp": 1741890062.6502206,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261044623817,
+            "longitude": 10.746085929895859,
+            "altitude": 0.0,
+            "timestamp": 1741890063.1032164,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278006254276,
+            "longitude": 10.74618126247773,
+            "altitude": 0.0,
+            "timestamp": 1741890063.4923093,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261218440589,
+            "longitude": 10.746062255091367,
+            "altitude": 0.0,
+            "timestamp": 1741890063.6226757,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9127782492376,
+            "longitude": 10.74601198962355,
+            "altitude": 0.0,
+            "timestamp": 1741890063.6511016,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261018945215,
+            "longitude": 10.74610383444823,
+            "altitude": 0.0,
+            "timestamp": 1741890064.103231,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912783729470284,
+            "longitude": 10.74616491349234,
+            "altitude": 0.0,
+            "timestamp": 1741890064.4912724,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261073407541,
+            "longitude": 10.746079930875428,
+            "altitude": 0.0,
+            "timestamp": 1741890064.621736,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277345283864,
+            "longitude": 10.745996844649458,
+            "altitude": 0.0,
+            "timestamp": 1741890064.65508,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912610830096845,
+            "longitude": 10.746121701250422,
+            "altitude": 0.0,
+            "timestamp": 1741890065.1032171,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278656021103,
+            "longitude": 10.74614791357212,
+            "altitude": 0.0,
+            "timestamp": 1741890065.491319,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912610175617324,
+            "longitude": 10.746097805834887,
+            "altitude": 0.0,
+            "timestamp": 1741890065.6253445,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91276791562112,
+            "longitude": 10.745982715202587,
+            "altitude": 0.0,
+            "timestamp": 1741890065.6509633,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261236141187,
+            "longitude": 10.74613934782173,
+            "altitude": 0.0,
+            "timestamp": 1741890066.1043673,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9127885258467,
+            "longitude": 10.74613043555449,
+            "altitude": 0.0,
+            "timestamp": 1741890066.492932,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261051472771,
+            "longitude": 10.746115708573381,
+            "altitude": 0.0,
+            "timestamp": 1741890066.6223235,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91276171623976,
+            "longitude": 10.745969794852181,
+            "altitude": 0.0,
+            "timestamp": 1741890066.6546192,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261476898933,
+            "longitude": 10.746156606451617,
+            "altitude": 0.0,
+            "timestamp": 1741890067.1037595,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912789606739274,
+            "longitude": 10.746112657072464,
+            "altitude": 0.0,
+            "timestamp": 1741890067.4917586,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261174776256,
+            "longitude": 10.746133448150305,
+            "altitude": 0.0,
+            "timestamp": 1741890067.621686,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91275488897968,
+            "longitude": 10.745958151407612,
+            "altitude": 0.0,
+            "timestamp": 1741890067.6511302,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261802830638,
+            "longitude": 10.746173298714892,
+            "altitude": 0.0,
+            "timestamp": 1741890068.1049004,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278979251967,
+            "longitude": 10.74609474770562,
+            "altitude": 0.0,
+            "timestamp": 1741890068.491704,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261386340663,
+            "longitude": 10.746150860616165,
+            "altitude": 0.0,
+            "timestamp": 1741890068.62219,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91274751658653,
+            "longitude": 10.745947930772688,
+            "altitude": 0.0,
+            "timestamp": 1741890068.6500583,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262210539142,
+            "longitude": 10.746189253319088,
+            "altitude": 0.0,
+            "timestamp": 1741890069.1031327,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278908099153,
+            "longitude": 10.74607689144229,
+            "altitude": 0.0,
+            "timestamp": 1741890069.492905,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261683834054,
+            "longitude": 10.746167755589607,
+            "altitude": 0.0,
+            "timestamp": 1741890069.622078,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91273966806146,
+            "longitude": 10.745939227645348,
+            "altitude": 0.0,
+            "timestamp": 1741890069.6505103,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262696058805,
+            "longitude": 10.746204316865915,
+            "altitude": 0.0,
+            "timestamp": 1741890070.102642,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278747977433,
+            "longitude": 10.746059270264725,
+            "altitude": 0.0,
+            "timestamp": 1741890070.4912992,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262064524668,
+            "longitude": 10.74618397948569,
+            "altitude": 0.0,
+            "timestamp": 1741890070.623634,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912731423610154,
+            "longitude": 10.745932131369285,
+            "altitude": 0.0,
+            "timestamp": 1741890070.6510274,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912632548486144,
+            "longitude": 10.746218345691071,
+            "altitude": 0.0,
+            "timestamp": 1741890071.1032732,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278500422767,
+            "longitude": 10.74604205256962,
+            "altitude": 0.0,
+            "timestamp": 1741890071.4915605,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912625244698994,
+            "longitude": 10.746199362678505,
+            "altitude": 0.0,
+            "timestamp": 1741890071.6222732,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91272286511273,
+            "longitude": 10.745926712290732,
+            "altitude": 0.0,
+            "timestamp": 1741890071.651636,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912638807739576,
+            "longitude": 10.74623118549023,
+            "altitude": 0.0,
+            "timestamp": 1741890072.104499,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912781679017144,
+            "longitude": 10.746025412590447,
+            "altitude": 0.0,
+            "timestamp": 1741890072.4919617,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91263059079702,
+            "longitude": 10.746213752413535,
+            "altitude": 0.0,
+            "timestamp": 1741890072.621744,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91271407987242,
+            "longitude": 10.74592302517139,
+            "altitude": 0.0,
+            "timestamp": 1741890072.6494992,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912645679429474,
+            "longitude": 10.746242716576308,
+            "altitude": 0.0,
+            "timestamp": 1741890073.1038644,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277753802078,
+            "longitude": 10.746009519662694,
+            "altitude": 0.0,
+            "timestamp": 1741890073.4917908,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91263663021393,
+            "longitude": 10.746227005456884,
+            "altitude": 0.0,
+            "timestamp": 1741890073.6231737,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9127051503501,
+            "longitude": 10.745921105206167,
+            "altitude": 0.0,
+            "timestamp": 1741890073.650912,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265309403697,
+            "longitude": 10.746252821675345,
+            "altitude": 0.0,
+            "timestamp": 1741890074.1042423,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277262267998,
+            "longitude": 10.745994531802172,
+            "altitude": 0.0,
+            "timestamp": 1741890074.4913406,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91264330442791,
+            "longitude": 10.74623899247945,
+            "altitude": 0.0,
+            "timestamp": 1741890074.6226332,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912696173207976,
+            "longitude": 10.745920973117716,
+            "altitude": 0.0,
+            "timestamp": 1741890074.6500344,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91266097536396,
+            "longitude": 10.746261397698987,
+            "altitude": 0.0,
+            "timestamp": 1741890075.103151,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91276698095228,
+            "longitude": 10.745980595611869,
+            "altitude": 0.0,
+            "timestamp": 1741890075.4919093,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265054426361,
+            "longitude": 10.746249588860323,
+            "altitude": 0.0,
+            "timestamp": 1741890075.6236982,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91268723175161,
+            "longitude": 10.745922629742326,
+            "altitude": 0.0,
+            "timestamp": 1741890075.6495686,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91266924729826,
+            "longitude": 10.746268362284304,
+            "altitude": 0.0,
+            "timestamp": 1741890076.1042056,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91276067051459,
+            "longitude": 10.745967853785757,
+            "altitude": 0.0,
+            "timestamp": 1741890076.4935536,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265827660782,
+            "longitude": 10.746258688755049,
+            "altitude": 0.0,
+            "timestamp": 1741890076.623145,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91267841687102,
+            "longitude": 10.74592605932014,
+            "altitude": 0.0,
+            "timestamp": 1741890076.6510444,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126778283542,
+            "longitude": 10.746273645903212,
+            "altitude": 0.0,
+            "timestamp": 1741890077.103262,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91275375345966,
+            "longitude": 10.745956431574996,
+            "altitude": 0.0,
+            "timestamp": 1741890077.4926338,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912666427146945,
+            "longitude": 10.746266204815806,
+            "altitude": 0.0,
+            "timestamp": 1741890077.6216972,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91266981860124,
+            "longitude": 10.74593122685534,
+            "altitude": 0.0,
+            "timestamp": 1741890077.6512115,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91268663002878,
+            "longitude": 10.746277193755693,
+            "altitude": 0.0,
+            "timestamp": 1741890078.104932,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9127463018941,
+            "longitude": 10.745946447087876,
+            "altitude": 0.0,
+            "timestamp": 1741890078.4904356,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91267491309218,
+            "longitude": 10.746272060197033,
+            "altitude": 0.0,
+            "timestamp": 1741890078.623737,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91266152323085,
+            "longitude": 10.745938079752564,
+            "altitude": 0.0,
+            "timestamp": 1741890078.6521819,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91269556522319,
+            "longitude": 10.746278971055006,
+            "altitude": 0.0,
+            "timestamp": 1741890079.1036265,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91273838404035,
+            "longitude": 10.745937992205262,
+            "altitude": 0.0,
+            "timestamp": 1741890079.491383,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912683650669,
+            "longitude": 10.746276196794232,
+            "altitude": 0.0,
+            "timestamp": 1741890079.6220157,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265361323081,
+            "longitude": 10.745946549049036,
+            "altitude": 0.0,
+            "timestamp": 1741890079.650199,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91270454524102,
+            "longitude": 10.746278960027658,
+            "altitude": 0.0,
+            "timestamp": 1741890080.1042414,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9127300828852,
+            "longitude": 10.745931156886538,
+            "altitude": 0.0,
+            "timestamp": 1741890080.4932778,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912692549773325,
+            "longitude": 10.746278572218818,
+            "altitude": 0.0,
+            "timestamp": 1741890080.6223187,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126461628064,
+            "longitude": 10.745956556470789,
+            "altitude": 0.0,
+            "timestamp": 1741890080.6515718,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91271347925118,
+            "longitude": 10.746277160809449,
+            "altitude": 0.0,
+            "timestamp": 1741890081.1043427,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91272148251434,
+            "longitude": 10.745926009767038,
+            "altitude": 0.0,
+            "timestamp": 1741890081.4932077,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91270152545225,
+            "longitude": 10.746279163710051,
+            "altitude": 0.0,
+            "timestamp": 1741890081.6234019,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912639253309166,
+            "longitude": 10.74596799310651,
+            "altitude": 0.0,
+            "timestamp": 1741890081.6512568,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91272227629291,
+            "longitude": 10.746273592603766,
+            "altitude": 0.0,
+            "timestamp": 1741890082.1061673,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91271266932851,
+            "longitude": 10.74592260152046,
+            "altitude": 0.0,
+            "timestamp": 1741890082.491207,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912710483809214,
+            "longitude": 10.746277965062324,
+            "altitude": 0.0,
+            "timestamp": 1741890082.6223652,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91263295086601,
+            "longitude": 10.745980747971128,
+            "altitude": 0.0,
+            "timestamp": 1741890082.6500227,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91273085522004,
+            "longitude": 10.746268287634066,
+            "altitude": 0.0,
+            "timestamp": 1741890083.1033695,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91270372699237,
+            "longitude": 10.74592096474036,
+            "altitude": 0.0,
+            "timestamp": 1741890083.491069,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9127193382684,
+            "longitude": 10.746274988229517,
+            "altitude": 0.0,
+            "timestamp": 1741890083.6217103,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262731790154,
+            "longitude": 10.745994694790827,
+            "altitude": 0.0,
+            "timestamp": 1741890083.6507719,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91273912330169,
+            "longitude": 10.746261302626285,
+            "altitude": 0.0,
+            "timestamp": 1741890084.1041539,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91269474643367,
+            "longitude": 10.74592111714889,
+            "altitude": 0.0,
+            "timestamp": 1741890084.4918368,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91272800042714,
+            "longitude": 10.74627026238193,
+            "altitude": 0.0,
+            "timestamp": 1741890084.6257381,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262241034824,
+            "longitude": 10.7460096959457,
+            "altitude": 0.0,
+            "timestamp": 1741890084.6495888,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91274700056314,
+            "longitude": 10.746252705981936,
+            "altitude": 0.0,
+            "timestamp": 1741890085.103883,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91268582088015,
+            "longitude": 10.745923056702908,
+            "altitude": 0.0,
+            "timestamp": 1741890085.4912364,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91273638093533,
+            "longitude": 10.746263836583015,
+            "altitude": 0.0,
+            "timestamp": 1741890085.6223547,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261827889396,
+            "longitude": 10.746025596257466,
+            "altitude": 0.0,
+            "timestamp": 1741890085.6507769,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91275440845571,
+            "longitude": 10.746242583306643,
+            "altitude": 0.0,
+            "timestamp": 1741890086.1028466,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91267703588908,
+            "longitude": 10.745926764387292,
+            "altitude": 0.0,
+            "timestamp": 1741890086.4926667,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91274439946724,
+            "longitude": 10.74625577252828,
+            "altitude": 0.0,
+            "timestamp": 1741890086.6231463,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912614963304335,
+            "longitude": 10.746042242427434,
+            "altitude": 0.0,
+            "timestamp": 1741890086.6494641,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91276127241759,
+            "longitude": 10.746231036534994,
+            "altitude": 0.0,
+            "timestamp": 1741890087.1035821,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91266847914983,
+            "longitude": 10.745932203924495,
+            "altitude": 0.0,
+            "timestamp": 1741890087.4928756,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912751973243495,
+            "longitude": 10.746246153350532,
+            "altitude": 0.0,
+            "timestamp": 1741890087.621884,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261249722061,
+            "longitude": 10.746059467371026,
+            "altitude": 0.0,
+            "timestamp": 1741890087.6497822,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91276752467959,
+            "longitude": 10.746218179556854,
+            "altitude": 0.0,
+            "timestamp": 1741890088.1042552,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91266024003698,
+            "longitude": 10.745939317999703,
+            "altitude": 0.0,
+            "timestamp": 1741890088.4919226,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91275902851527,
+            "longitude": 10.746235072844893,
+            "altitude": 0.0,
+            "timestamp": 1741890088.6217093,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261090582644,
+            "longitude": 10.746077094542914,
+            "altitude": 0.0,
+            "timestamp": 1741890088.6495728,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277310117072,
+            "longitude": 10.746204144593625,
+            "altitude": 0.0,
+            "timestamp": 1741890089.1038647,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265239678577,
+            "longitude": 10.74594803861326,
+            "altitude": 0.0,
+            "timestamp": 1741890089.492184,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912765493690685,
+            "longitude": 10.746222643239609,
+            "altitude": 0.0,
+            "timestamp": 1741890089.6228313,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261020455232,
+            "longitude": 10.746094950810999,
+            "altitude": 0.0,
+            "timestamp": 1741890089.6538558,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277794878945,
+            "longitude": 10.746189064906313,
+            "altitude": 0.0,
+            "timestamp": 1741890090.1032503,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912645029125756,
+            "longitude": 10.74595827764969,
+            "altitude": 0.0,
+            "timestamp": 1741890090.4915721,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277130449854,
+            "longitude": 10.74620898826226,
+            "altitude": 0.0,
+            "timestamp": 1741890090.6229532,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912610400417975,
+            "longitude": 10.746112857099908,
+            "altitude": 0.0,
+            "timestamp": 1741890090.6496894,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912782017152004,
+            "longitude": 10.746173096098612,
+            "altitude": 0.0,
+            "timestamp": 1741890091.104004,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91263821001629,
+            "longitude": 10.745969934091267,
+            "altitude": 0.0,
+            "timestamp": 1741890091.492003,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277640304173,
+            "longitude": 10.746194243823822,
+            "altitude": 0.0,
+            "timestamp": 1741890091.6228971,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261149155052,
+            "longitude": 10.746130636218021,
+            "altitude": 0.0,
+            "timestamp": 1741890091.6505928,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912785265181235,
+            "longitude": 10.746156401321139,
+            "altitude": 0.0,
+            "timestamp": 1741890092.1049345,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91263200978512,
+            "longitude": 10.745982887294078,
+            "altitude": 0.0,
+            "timestamp": 1741890092.4913733,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278073798321,
+            "longitude": 10.746178558440572,
+            "altitude": 0.0,
+            "timestamp": 1741890092.622781,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126134670248,
+            "longitude": 10.746148108924729,
+            "altitude": 0.0,
+            "timestamp": 1741890092.6493876,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278766230487,
+            "longitude": 10.746139137043924,
+            "altitude": 0.0,
+            "timestamp": 1741890093.103571,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262648818328,
+            "longitude": 10.745997011953275,
+            "altitude": 0.0,
+            "timestamp": 1741890093.4913392,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278426668953,
+            "longitude": 10.746162085871884,
+            "altitude": 0.0,
+            "timestamp": 1741890093.6216006,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261630774905,
+            "longitude": 10.746165104191869,
+            "altitude": 0.0,
+            "timestamp": 1741890093.650337,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278918320959,
+            "longitude": 10.746121482578578,
+            "altitude": 0.0,
+            "timestamp": 1741890094.103911,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262170106341,
+            "longitude": 10.746012165674378,
+            "altitude": 0.0,
+            "timestamp": 1741890094.4913146,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278695340907,
+            "longitude": 10.746144991595164,
+            "altitude": 0.0,
+            "timestamp": 1741890094.6268523,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912619984017866,
+            "longitude": 10.746181444748373,
+            "altitude": 0.0,
+            "timestamp": 1741890094.651232,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278981281119,
+            "longitude": 10.746103617366925,
+            "altitude": 0.0,
+            "timestamp": 1741890095.1034336,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912617695876236,
+            "longitude": 10.74602819882604,
+            "altitude": 0.0,
+            "timestamp": 1741890095.4918103,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278877040352,
+            "longitude": 10.746127455388518,
+            "altitude": 0.0,
+            "timestamp": 1741890095.6222973,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262445945345,
+            "longitude": 10.746196970851688,
+            "altitude": 0.0,
+            "timestamp": 1741890095.6564333,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278954509254,
+            "longitude": 10.74608571203877,
+            "altitude": 0.0,
+            "timestamp": 1741890096.104104,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261451383844,
+            "longitude": 10.746044945741097,
+            "altitude": 0.0,
+            "timestamp": 1741890096.4913247,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278970095572,
+            "longitude": 10.746109642699633,
+            "altitude": 0.0,
+            "timestamp": 1741890096.6219363,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262969113178,
+            "longitude": 10.746211532308482,
+            "altitude": 0.0,
+            "timestamp": 1741890096.6505623,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912788382818455,
+            "longitude": 10.746067953114764,
+            "altitude": 0.0,
+            "timestamp": 1741890097.105526,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126121853334,
+            "longitude": 10.74606224650611,
+            "altitude": 0.0,
+            "timestamp": 1741890097.4919991,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278973536976,
+            "longitude": 10.746091728909546,
+            "altitude": 0.0,
+            "timestamp": 1741890097.621728,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91263562324045,
+            "longitude": 10.746224974159382,
+            "altitude": 0.0,
+            "timestamp": 1741890097.649793,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912786337238664,
+            "longitude": 10.746050511562448,
+            "altitude": 0.0,
+            "timestamp": 1741890098.1039796,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261073463126,
+            "longitude": 10.746079921040334,
+            "altitude": 0.0,
+            "timestamp": 1741890098.491377,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278887311447,
+            "longitude": 10.746073900226907,
+            "altitude": 0.0,
+            "timestamp": 1741890098.6217287,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91264220085526,
+            "longitude": 10.746237171980926,
+            "altitude": 0.0,
+            "timestamp": 1741890098.6504757,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912783429382394,
+            "longitude": 10.746033566902382,
+            "altitude": 0.0,
+            "timestamp": 1741890099.103219,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261017566982,
+            "longitude": 10.746097797300969,
+            "altitude": 0.0,
+            "timestamp": 1741890099.491355,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912787122877,
+            "longitude": 10.746056332365015,
+            "altitude": 0.0,
+            "timestamp": 1741890099.6228411,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91264935439697,
+            "longitude": 10.746247996289824,
+            "altitude": 0.0,
+            "timestamp": 1741890099.6502378,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277968737961,
+            "longitude": 10.746017283256629,
+            "altitude": 0.0,
+            "timestamp": 1741890100.105184,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912610514265104,
+            "longitude": 10.746115698084209,
+            "altitude": 0.0,
+            "timestamp": 1741890100.4918349,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278450235329,
+            "longitude": 10.746039201969362,
+            "altitude": 0.0,
+            "timestamp": 1741890100.6215894,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265701763898,
+            "longitude": 10.746257346099373,
+            "altitude": 0.0,
+            "timestamp": 1741890100.651294,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912775150372795,
+            "longitude": 10.746001830285957,
+            "altitude": 0.0,
+            "timestamp": 1741890101.102574,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261174710671,
+            "longitude": 10.746133441264094,
+            "altitude": 0.0,
+            "timestamp": 1741890101.4918792,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278103708505,
+            "longitude": 10.746022676673554,
+            "altitude": 0.0,
+            "timestamp": 1741890101.6217356,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91266510458012,
+            "longitude": 10.746265117318249,
+            "altitude": 0.0,
+            "timestamp": 1741890101.6507912,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912769861264835,
+            "longitude": 10.745987354096716,
+            "altitude": 0.0,
+            "timestamp": 1741890102.1036217,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261386128735,
+            "longitude": 10.746150846332734,
+            "altitude": 0.0,
+            "timestamp": 1741890102.4913657,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277676236297,
+            "longitude": 10.746006925229777,
+            "altitude": 0.0,
+            "timestamp": 1741890102.6240807,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91267354140581,
+            "longitude": 10.746271240709422,
+            "altitude": 0.0,
+            "timestamp": 1741890102.650391,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91276387443024,
+            "longitude": 10.745974004430087,
+            "altitude": 0.0,
+            "timestamp": 1741890103.1031651,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261683661512,
+            "longitude": 10.746167747162582,
+            "altitude": 0.0,
+            "timestamp": 1741890103.491749,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277172061482,
+            "longitude": 10.745992103605195,
+            "altitude": 0.0,
+            "timestamp": 1741890103.6225684,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91268224518382,
+            "longitude": 10.746275654736225,
+            "altitude": 0.0,
+            "timestamp": 1741890103.6506684,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91275725002873,
+            "longitude": 10.745961914788012,
+            "altitude": 0.0,
+            "timestamp": 1741890104.1034055,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262064235235,
+            "longitude": 10.746183968602514,
+            "altitude": 0.0,
+            "timestamp": 1741890104.492591,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91276596214375,
+            "longitude": 10.745978359812959,
+            "altitude": 0.0,
+            "timestamp": 1741890104.6225524,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912691123642745,
+            "longitude": 10.74627831262266,
+            "altitude": 0.0,
+            "timestamp": 1741890104.6535628,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912750051873026,
+            "longitude": 10.745951202172316,
+            "altitude": 0.0,
+            "timestamp": 1741890105.10339,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262524170432,
+            "longitude": 10.746199353713125,
+            "altitude": 0.0,
+            "timestamp": 1741890105.4919522,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91275954635985,
+            "longitude": 10.745965834614356,
+            "altitude": 0.0,
+            "timestamp": 1741890105.6216567,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91270009231263,
+            "longitude": 10.746279189453363,
+            "altitude": 0.0,
+            "timestamp": 1741890105.6503143,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91274235438751,
+            "longitude": 10.745941977769261,
+            "altitude": 0.0,
+            "timestamp": 1741890106.106266,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912630587677235,
+            "longitude": 10.74621374483863,
+            "altitude": 0.0,
+            "timestamp": 1741890106.4915934,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912752534973514,
+            "longitude": 10.74595464796439,
+            "altitude": 0.0,
+            "timestamp": 1741890106.6209683,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91270905998771,
+            "longitude": 10.746278275870484,
+            "altitude": 0.0,
+            "timestamp": 1741890106.6498613,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91273423490787,
+            "longitude": 10.745934333423333,
+            "altitude": 0.0,
+            "timestamp": 1741890107.1035118,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91263662736818,
+            "longitude": 10.746226999806893,
+            "altitude": 0.0,
+            "timestamp": 1741890107.4920592,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912744995272924,
+            "longitude": 10.745944909211877,
+            "altitude": 0.0,
+            "timestamp": 1741890107.6217887,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91271793839348,
+            "longitude": 10.746275580506436,
+            "altitude": 0.0,
+            "timestamp": 1741890107.6506238,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912725772582704,
+            "longitude": 10.745928343505405,
+            "altitude": 0.0,
+            "timestamp": 1741890108.1031573,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91264330008426,
+            "longitude": 10.746238985429073,
+            "altitude": 0.0,
+            "timestamp": 1741890108.4919071,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91273700817714,
+            "longitude": 10.745936723355412,
+            "altitude": 0.0,
+            "timestamp": 1741890108.6216843,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9127266348508,
+            "longitude": 10.746271131951984,
+            "altitude": 0.0,
+            "timestamp": 1741890108.6497233,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91271705161607,
+            "longitude": 10.745924068264886,
+            "altitude": 0.0,
+            "timestamp": 1741890109.1039577,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265053921691,
+            "longitude": 10.746249582220932,
+            "altitude": 0.0,
+            "timestamp": 1741890109.492006,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91272865483231,
+            "longitude": 10.745930171392121,
+            "altitude": 0.0,
+            "timestamp": 1741890109.6200662,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91273506818744,
+            "longitude": 10.746264971613007,
+            "altitude": 0.0,
+            "timestamp": 1741890109.6509511,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91270816179061,
+            "longitude": 10.745921551589944,
+            "altitude": 0.0,
+            "timestamp": 1741890110.1032846,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265827202413,
+            "longitude": 10.746258683959365,
+            "altitude": 0.0,
+            "timestamp": 1741890110.4913986,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91272000954333,
+            "longitude": 10.745925312327621,
+            "altitude": 0.0,
+            "timestamp": 1741890110.6229506,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91274314726539,
+            "longitude": 10.746257166411597,
+            "altitude": 0.0,
+            "timestamp": 1741890110.649232,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91269916934121,
+            "longitude": 10.745920818112994,
+            "altitude": 0.0,
+            "timestamp": 1741890111.1061306,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91266642221105,
+            "longitude": 10.74626620084829,
+            "altitude": 0.0,
+            "timestamp": 1741890111.4928932,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91271116503882,
+            "longitude": 10.74592219988171,
+            "altitude": 0.0,
+            "timestamp": 1741890111.62268,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91275080005905,
+            "longitude": 10.74624778550536,
+            "altitude": 0.0,
+            "timestamp": 1741890111.6512604,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912690225856764,
+            "longitude": 10.745921874295137,
+            "altitude": 0.0,
+            "timestamp": 1741890112.104248,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91267490842043,
+            "longitude": 10.746272057486449,
+            "altitude": 0.0,
+            "timestamp": 1741890112.4913478,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91270221294243,
+            "longitude": 10.745920864831525,
+            "altitude": 0.0,
+            "timestamp": 1741890112.6227179,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912757943717395,
+            "longitude": 10.746236929073156,
+            "altitude": 0.0,
+            "timestamp": 1741890112.6529398,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912681359135625,
+            "longitude": 10.74592471089334,
+            "altitude": 0.0,
+            "timestamp": 1741890113.1106868,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91268364478771,
+            "longitude": 10.746276194622396,
+            "altitude": 0.0,
+            "timestamp": 1741890113.4913425,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912693237411524,
+            "longitude": 10.745921318929383,
+            "altitude": 0.0,
+            "timestamp": 1741890113.6202688,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91276450620412,
+            "longitude": 10.746224708293227,
+            "altitude": 0.0,
+            "timestamp": 1741890113.6517882,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91267267999288,
+            "longitude": 10.745929298353836,
+            "altitude": 0.0,
+            "timestamp": 1741890114.1038566,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126925446558,
+            "longitude": 10.746278571368977,
+            "altitude": 0.0,
+            "timestamp": 1741890114.4924474,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912684326295704,
+            "longitude": 10.74592355908075,
+            "altitude": 0.0,
+            "timestamp": 1741890114.6219757,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277042534917,
+            "longitude": 10.74621123951184,
+            "altitude": 0.0,
+            "timestamp": 1741890114.6505964,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912664274013935,
+            "longitude": 10.745935590940853,
+            "altitude": 0.0,
+            "timestamp": 1741890115.1056023,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91270151919564,
+            "longitude": 10.746279163921578,
+            "altitude": 0.0,
+            "timestamp": 1741890115.491894,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91267557419736,
+            "longitude": 10.745927561733408,
+            "altitude": 0.0,
+            "timestamp": 1741890115.6219916,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277564067953,
+            "longitude": 10.746196659771275,
+            "altitude": 0.0,
+            "timestamp": 1741890115.6508129,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265622645686,
+            "longitude": 10.745943524190613,
+            "altitude": 0.0,
+            "timestamp": 1741890116.10163,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91271047871756,
+            "longitude": 10.74627796625551,
+            "altitude": 0.0,
+            "timestamp": 1741890116.4915473,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912667068933004,
+            "longitude": 10.745933285067295,
+            "altitude": 0.0,
+            "timestamp": 1741890116.6204102,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278009965479,
+            "longitude": 10.746181116825934,
+            "altitude": 0.0,
+            "timestamp": 1741890116.6494892,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912648603966424,
+            "longitude": 10.74595303670261,
+            "altitude": 0.0,
+            "timestamp": 1741890117.1048648,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91271933314059,
+            "longitude": 10.746274990484025,
+            "altitude": 0.0,
+            "timestamp": 1741890117.4913678,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265888662556,
+            "longitude": 10.745940678983246,
+            "altitude": 0.0,
+            "timestamp": 1741890117.6224816,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278376087388,
+            "longitude": 10.746164752087621,
+            "altitude": 0.0,
+            "timestamp": 1741890117.6517637,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91264151238001,
+            "longitude": 10.745963994143523,
+            "altitude": 0.0,
+            "timestamp": 1741890118.103784,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91272799538285,
+            "longitude": 10.746270265682385,
+            "altitude": 0.0,
+            "timestamp": 1741890118.4919462,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912651116684025,
+            "longitude": 10.745949664345519,
+            "altitude": 0.0,
+            "timestamp": 1741890118.622379,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278658195547,
+            "longitude": 10.746147756989156,
+            "altitude": 0.0,
+            "timestamp": 1741890118.6495652,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912634997618326,
+            "longitude": 10.745976321092655,
+            "altitude": 0.0,
+            "timestamp": 1741890119.1045024,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912736377109496,
+            "longitude": 10.746263839963142,
+            "altitude": 0.0,
+            "timestamp": 1741890119.492062,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126438386306,
+            "longitude": 10.745960147234566,
+            "altitude": 0.0,
+            "timestamp": 1741890119.6216207,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278853951908,
+            "longitude": 10.746130276892991,
+            "altitude": 0.0,
+            "timestamp": 1741890119.6507006,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912629132312844,
+            "longitude": 10.745989883944738,
+            "altitude": 0.0,
+            "timestamp": 1741890120.1039011,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912744394544994,
+            "longitude": 10.746255778110289,
+            "altitude": 0.0,
+            "timestamp": 1741890120.4912615,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912637118665174,
+            "longitude": 10.745972032191995,
+            "altitude": 0.0,
+            "timestamp": 1741890120.6221836,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9127896125339,
+            "longitude": 10.746112492769008,
+            "altitude": 0.0,
+            "timestamp": 1741890120.6505904,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262397516839,
+            "longitude": 10.746004546945692,
+            "altitude": 0.0,
+            "timestamp": 1741890121.1036134,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91275196993889,
+            "longitude": 10.746246158026185,
+            "altitude": 0.0,
+            "timestamp": 1741890121.49214,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91263102907728,
+            "longitude": 10.745985191751856,
+            "altitude": 0.0,
+            "timestamp": 1741890121.6229486,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278979003657,
+            "longitude": 10.746094581429313,
+            "altitude": 0.0,
+            "timestamp": 1741890121.6545577,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261957759403,
+            "longitude": 10.746020163957164,
+            "altitude": 0.0,
+            "timestamp": 1741890122.1032717,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91275902453768,
+            "longitude": 10.746235079760964,
+            "altitude": 0.0,
+            "timestamp": 1741890122.492376,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262562867429,
+            "longitude": 10.745999497353202,
+            "altitude": 0.0,
+            "timestamp": 1741890122.6212864,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278907059481,
+            "longitude": 10.746076732527639,
+            "altitude": 0.0,
+            "timestamp": 1741890122.6513371,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912615983533286,
+            "longitude": 10.74603657915559,
+            "altitude": 0.0,
+            "timestamp": 1741890123.1049,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912765490106956,
+            "longitude": 10.746222650854044,
+            "altitude": 0.0,
+            "timestamp": 1741890123.4915907,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262096919155,
+            "longitude": 10.746014813684942,
+            "altitude": 0.0,
+            "timestamp": 1741890123.6218345,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278746086614,
+            "longitude": 10.74605910901022,
+            "altitude": 0.0,
+            "timestamp": 1741890123.6505241,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261322952513,
+            "longitude": 10.746053624405475,
+            "altitude": 0.0,
+            "timestamp": 1741890124.1032076,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912771301716354,
+            "longitude": 10.746208995504501,
+            "altitude": 0.0,
+            "timestamp": 1741890124.49191,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261710049647,
+            "longitude": 10.746030977970847,
+            "altitude": 0.0,
+            "timestamp": 1741890124.6217659,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9127849775419,
+            "longitude": 10.746041897042055,
+            "altitude": 0.0,
+            "timestamp": 1741890124.6499522,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261134186209,
+            "longitude": 10.746071137287881,
+            "altitude": 0.0,
+            "timestamp": 1741890125.1033432,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277640093331,
+            "longitude": 10.746194250624699,
+            "altitude": 0.0,
+            "timestamp": 1741890125.4924474,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126140603629,
+            "longitude": 10.746047830508495,
+            "altitude": 0.0,
+            "timestamp": 1741890125.6215732,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278164488996,
+            "longitude": 10.74602526406727,
+            "altitude": 0.0,
+            "timestamp": 1741890125.6498346,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261034031962,
+            "longitude": 10.746088934796836,
+            "altitude": 0.0,
+            "timestamp": 1741890126.1040235,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278073632335,
+            "longitude": 10.74617856522801,
+            "altitude": 0.0,
+            "timestamp": 1741890126.4923892,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261187835628,
+            "longitude": 10.74606520879594,
+            "altitude": 0.0,
+            "timestamp": 1741890126.6221735,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277749676295,
+            "longitude": 10.746009379127228,
+            "altitude": 0.0,
+            "timestamp": 1741890126.6496727,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261023447177,
+            "longitude": 10.746106846228125,
+            "altitude": 0.0,
+            "timestamp": 1741890127.1031818,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278426504595,
+            "longitude": 10.746162094747346,
+            "altitude": 0.0,
+            "timestamp": 1741890127.4917393,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912610577503855,
+            "longitude": 10.746082928158854,
+            "altitude": 0.0,
+            "timestamp": 1741890127.6216693,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277257352488,
+            "longitude": 10.745994397257313,
+            "altitude": 0.0,
+            "timestamp": 1741890127.6533256,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126110256201,
+            "longitude": 10.746124688813495,
+            "altitude": 0.0,
+            "timestamp": 1741890128.1046891,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278695195711,
+            "longitude": 10.746145002759249,
+            "altitude": 0.0,
+            "timestamp": 1741890128.4917555,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126101698323,
+            "longitude": 10.74610082400218,
+            "altitude": 0.0,
+            "timestamp": 1741890128.62189,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91276692590289,
+            "longitude": 10.745980472852816,
+            "altitude": 0.0,
+            "timestamp": 1741890128.649863,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261270527652,
+            "longitude": 10.746142280021047,
+            "altitude": 0.0,
+            "timestamp": 1741890129.1024733,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912788769651684,
+            "longitude": 10.74612746505924,
+            "altitude": 0.0,
+            "timestamp": 1741890129.4913409,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261065975324,
+            "longitude": 10.746118706982745,
+            "altitude": 0.0,
+            "timestamp": 1741890129.621963,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9127606100233,
+            "longitude": 10.745967743380541,
+            "altitude": 0.0,
+            "timestamp": 1741890129.6501806,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261525692877,
+            "longitude": 10.746159449939046,
+            "altitude": 0.0,
+            "timestamp": 1741890130.1017666,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278970080553,
+            "longitude": 10.746109648256938,
+            "altitude": 0.0,
+            "timestamp": 1741890130.4918175,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126120422348,
+            "longitude": 10.74613640389896,
+            "altitude": 0.0,
+            "timestamp": 1741890130.6216812,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91275368644835,
+            "longitude": 10.745956331840413,
+            "altitude": 0.0,
+            "timestamp": 1741890130.6505897,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261865715492,
+            "longitude": 10.746176035144977,
+            "altitude": 0.0,
+            "timestamp": 1741890131.1032546,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278973555115,
+            "longitude": 10.746091736743658,
+            "altitude": 0.0,
+            "timestamp": 1741890131.491814,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912614303780586,
+            "longitude": 10.746153739133334,
+            "altitude": 0.0,
+            "timestamp": 1741890131.6234252,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91274622778312,
+            "longitude": 10.745946358265632,
+            "altitude": 0.0,
+            "timestamp": 1741890131.65069,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262286734718,
+            "longitude": 10.746191848612657,
+            "altitude": 0.0,
+            "timestamp": 1741890132.1017642,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278887382675,
+            "longitude": 10.746073909879314,
+            "altitude": 0.0,
+            "timestamp": 1741890132.4914186,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912617421872966,
+            "longitude": 10.746170538252954,
+            "altitude": 0.0,
+            "timestamp": 1741890132.6222012,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91273830914491,
+            "longitude": 10.745937921683442,
+            "altitude": 0.0,
+            "timestamp": 1741890132.6495652,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262784921424,
+            "longitude": 10.746206749125289,
+            "altitude": 0.0,
+            "timestamp": 1741890133.1013932,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912787124074015,
+            "longitude": 10.74605634186879,
+            "altitude": 0.0,
+            "timestamp": 1741890133.492609,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912621363992486,
+            "longitude": 10.746186627869982,
+            "altitude": 0.0,
+            "timestamp": 1741890133.6229205,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9127300041194,
+            "longitude": 10.745931101128829,
+            "altitude": 0.0,
+            "timestamp": 1741890133.6506634,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91263355485153,
+            "longitude": 10.746220589659679,
+            "altitude": 0.0,
+            "timestamp": 1741890134.1032825,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278450329698,
+            "longitude": 10.746039207188554,
+            "altitude": 0.0,
+            "timestamp": 1741890134.491862,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912626092792706,
+            "longitude": 10.746201855832545,
+            "altitude": 0.0,
+            "timestamp": 1741890134.6223257,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91272140183409,
+            "longitude": 10.74592597020911,
+            "altitude": 0.0,
+            "timestamp": 1741890134.6501615,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912639921342716,
+            "longitude": 10.746233217809714,
+            "altitude": 0.0,
+            "timestamp": 1741890135.104248,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912781039040254,
+            "longitude": 10.746022684827492,
+            "altitude": 0.0,
+            "timestamp": 1741890135.4914255,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91263155895281,
+            "longitude": 10.746216063122052,
+            "altitude": 0.0,
+            "timestamp": 1741890135.621742,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91271258497874,
+            "longitude": 10.74592257763234,
+            "altitude": 0.0,
+            "timestamp": 1741890135.6501946,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126468880308,
+            "longitude": 10.746244515273505,
+            "altitude": 0.0,
+            "timestamp": 1741890136.1025019,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277676476656,
+            "longitude": 10.746006933117902,
+            "altitude": 0.0,
+            "timestamp": 1741890136.4930773,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91263771126356,
+            "longitude": 10.746229115851218,
+            "altitude": 0.0,
+            "timestamp": 1741890136.6230283,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912703642925564,
+            "longitude": 10.745920957855708,
+            "altitude": 0.0,
+            "timestamp": 1741890136.649773,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265438821035,
+            "longitude": 10.746254372548348,
+            "altitude": 0.0,
+            "timestamp": 1741890137.1033251,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277172257073,
+            "longitude": 10.74599210877856,
+            "altitude": 0.0,
+            "timestamp": 1741890137.4923732,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91264448453806,
+            "longitude": 10.746240875162293,
+            "altitude": 0.0,
+            "timestamp": 1741890137.6224382,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91269466437936,
+            "longitude": 10.745921126812709,
+            "altitude": 0.0,
+            "timestamp": 1741890137.650048,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126623412679,
+            "longitude": 10.746262683693107,
+            "altitude": 0.0,
+            "timestamp": 1741890138.1055465,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912765964886724,
+            "longitude": 10.74597836573172,
+            "altitude": 0.0,
+            "timestamp": 1741890138.4916916,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265181080635,
+            "longitude": 10.746251224711779,
+            "altitude": 0.0,
+            "timestamp": 1741890138.622896,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912685736801166,
+            "longitude": 10.74592308359305,
+            "altitude": 0.0,
+            "timestamp": 1741890138.6510468,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912670671895945,
+            "longitude": 10.7462693706691,
+            "altitude": 0.0,
+            "timestamp": 1741890139.103413,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91275954736,
+            "longitude": 10.745965836380616,
+            "altitude": 0.0,
+            "timestamp": 1741890139.4920506,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912659621384016,
+            "longitude": 10.746260066971852,
+            "altitude": 0.0,
+            "timestamp": 1741890139.6223154,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91267695552804,
+            "longitude": 10.745926806853376,
+            "altitude": 0.0,
+            "timestamp": 1741890139.6495948,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912679295321894,
+            "longitude": 10.746274365048976,
+            "altitude": 0.0,
+            "timestamp": 1741890140.1032548,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91275253534823,
+            "longitude": 10.745954648503291,
+            "altitude": 0.0,
+            "timestamp": 1741890140.4921014,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91266783276845,
+            "longitude": 10.746267307265608,
+            "altitude": 0.0,
+            "timestamp": 1741890140.6219065,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91266840326481,
+            "longitude": 10.74593226072339,
+            "altitude": 0.0,
+            "timestamp": 1741890140.6493156,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912688125301564,
+            "longitude": 10.746277617072002,
+            "altitude": 0.0,
+            "timestamp": 1741890141.1036344,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91274499854225,
+            "longitude": 10.745944912986133,
+            "altitude": 0.0,
+            "timestamp": 1741890141.492082,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91267636821214,
+            "longitude": 10.746272877955327,
+            "altitude": 0.0,
+            "timestamp": 1741890141.624231,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91266016556868,
+            "longitude": 10.74593939140504,
+            "altitude": 0.0,
+            "timestamp": 1741890141.6507394,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91269707019646,
+            "longitude": 10.746279094219728,
+            "altitude": 0.0,
+            "timestamp": 1741890142.1014533,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91273701266308,
+            "longitude": 10.745936727401457,
+            "altitude": 0.0,
+            "timestamp": 1741890142.491511,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91268513785487,
+            "longitude": 10.746276720128074,
+            "altitude": 0.0,
+            "timestamp": 1741890142.6218936,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265232684618,
+            "longitude": 10.745948125878536,
+            "altitude": 0.0,
+            "timestamp": 1741890142.6492367,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91270605338301,
+            "longitude": 10.746278782243442,
+            "altitude": 0.0,
+            "timestamp": 1741890143.1038682,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912728655982605,
+            "longitude": 10.745930172164408,
+            "altitude": 0.0,
+            "timestamp": 1741890143.4914289,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91269405536982,
+            "longitude": 10.746278796762873,
+            "altitude": 0.0,
+            "timestamp": 1741890143.6214924,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912644963110914,
+            "longitude": 10.745958379631942,
+            "altitude": 0.0,
+            "timestamp": 1741890143.650094,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91271496980985,
+            "longitude": 10.746276683965837,
+            "altitude": 0.0,
+            "timestamp": 1741890144.1035626,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91272001188951,
+            "longitude": 10.745925313397011,
+            "altitude": 0.0,
+            "timestamp": 1741890144.4921043,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91270303508138,
+            "longitude": 10.746279087243709,
+            "altitude": 0.0,
+            "timestamp": 1741890144.6231897,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126381510094,
+            "longitude": 10.745970045732028,
+            "altitude": 0.0,
+            "timestamp": 1741890144.649413,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91272373627675,
+            "longitude": 10.746272820987528,
+            "altitude": 0.0,
+            "timestamp": 1741890145.1025193,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9127111707165,
+            "longitude": 10.745922201300711,
+            "altitude": 0.0,
+            "timestamp": 1741890145.4920168,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91271198211165,
+            "longitude": 10.746277588366693,
+            "altitude": 0.0,
+            "timestamp": 1741890145.621776,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126319546812,
+            "longitude": 10.745983014705661,
+            "altitude": 0.0,
+            "timestamp": 1741890145.6502433,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912732269436056,
+            "longitude": 10.746267228934963,
+            "altitude": 0.0,
+            "timestamp": 1741890146.1033337,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91270221608275,
+            "longitude": 10.745920864985994,
+            "altitude": 0.0,
+            "timestamp": 1741890146.4916167,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91272081117857,
+            "longitude": 10.746274314593224,
+            "altitude": 0.0,
+            "timestamp": 1741890146.6222415,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912626439857966,
+            "longitude": 10.745997149341415,
+            "altitude": 0.0,
+            "timestamp": 1741890146.6501834,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91274047559501,
+            "longitude": 10.746259969483496,
+            "altitude": 0.0,
+            "timestamp": 1741890147.1039119,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91269323868159,
+            "longitude": 10.745921318738139,
+            "altitude": 0.0,
+            "timestamp": 1741890147.4920037,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912729430790364,
+            "longitude": 10.746269299779815,
+            "altitude": 0.0,
+            "timestamp": 1741890147.6216047,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912621660952915,
+            "longitude": 10.746012308098898,
+            "altitude": 0.0,
+            "timestamp": 1741890147.6488774,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91274828057875,
+            "longitude": 10.746251108686604,
+            "altitude": 0.0,
+            "timestamp": 1741890148.1032443,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91268433090511,
+            "longitude": 10.745923557451743,
+            "altitude": 0.0,
+            "timestamp": 1741890148.4913647,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912737758671,
+            "longitude": 10.746262591493961,
+            "altitude": 0.0,
+            "timestamp": 1741890148.62207,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261766190642,
+            "longitude": 10.746028353962574,
+            "altitude": 0.0,
+            "timestamp": 1741890148.6512072,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91275560439349,
+            "longitude": 10.74624073553507,
+            "altitude": 0.0,
+            "timestamp": 1741890149.103933,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912675577589226,
+            "longitude": 10.745927559821824,
+            "altitude": 0.0,
+            "timestamp": 1741890149.492099,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91274570704138,
+            "longitude": 10.746254260407804,
+            "altitude": 0.0,
+            "timestamp": 1741890149.62323,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261448825249,
+            "longitude": 10.746045104072907,
+            "altitude": 0.0,
+            "timestamp": 1741890149.6499135,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912762369842476,
+            "longitude": 10.746228959967853,
+            "altitude": 0.0,
+            "timestamp": 1741890150.1043866,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91266706938472,
+            "longitude": 10.745933284712265,
+            "altitude": 0.0,
+            "timestamp": 1741890150.492207,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91275319782428,
+            "longitude": 10.746244389567455,
+            "altitude": 0.0,
+            "timestamp": 1741890150.6216328,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261216765482,
+            "longitude": 10.746062410495917,
+            "altitude": 0.0,
+            "timestamp": 1741890150.6507833,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91276851176801,
+            "longitude": 10.746215896981111,
+            "altitude": 0.0,
+            "timestamp": 1741890151.103764,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265888994795,
+            "longitude": 10.74594067557202,
+            "altitude": 0.0,
+            "timestamp": 1741890151.4925432,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912760159335676,
+            "longitude": 10.746233072860877,
+            "altitude": 0.0,
+            "timestamp": 1741890151.6237063,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912610725463786,
+            "longitude": 10.746080083876103,
+            "altitude": 0.0,
+            "timestamp": 1741890151.649123,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277396963523,
+            "longitude": 10.746201675356343,
+            "altitude": 0.0,
+            "timestamp": 1741890152.1033063,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265112133026,
+            "longitude": 10.745949658334574,
+            "altitude": 0.0,
+            "timestamp": 1741890152.491838,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91276651875469,
+            "longitude": 10.746220428085875,
+            "altitude": 0.0,
+            "timestamp": 1741890152.6228378,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912610174664884,
+            "longitude": 10.746097966890337,
+            "altitude": 0.0,
+            "timestamp": 1741890152.6508186,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277868856656,
+            "longitude": 10.74618643776001,
+            "altitude": 0.0,
+            "timestamp": 1741890153.1035528,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912643841314676,
+            "longitude": 10.745960142945966,
+            "altitude": 0.0,
+            "timestamp": 1741890153.491888,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912772213769756,
+            "longitude": 10.746206579530188,
+            "altitude": 0.0,
+            "timestamp": 1741890153.622242,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261052153254,
+            "longitude": 10.746115862060199,
+            "altitude": 0.0,
+            "timestamp": 1741890153.649685,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278262127373,
+            "longitude": 10.746170336930069,
+            "altitude": 0.0,
+            "timestamp": 1741890154.1037734,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91263712295973,
+            "longitude": 10.745972023795805,
+            "altitude": 0.0,
+            "timestamp": 1741890154.4913387,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277718698599,
+            "longitude": 10.746191666816223,
+            "altitude": 0.0,
+            "timestamp": 1741890154.6235902,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261176230981,
+            "longitude": 10.74613360051431,
+            "altitude": 0.0,
+            "timestamp": 1741890154.6493964,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278572930953,
+            "longitude": 10.746153528718704,
+            "altitude": 0.0,
+            "timestamp": 1741890155.105494,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912631031733575,
+            "longitude": 10.745985185402645,
+            "altitude": 0.0,
+            "timestamp": 1741890155.4927108,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278138830652,
+            "longitude": 10.746175841326544,
+            "altitude": 0.0,
+            "timestamp": 1741890155.6224034,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126138848529,
+            "longitude": 10.746151004914044,
+            "altitude": 0.0,
+            "timestamp": 1741890155.6497428,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278798000098,
+            "longitude": 10.746136189468675,
+            "altitude": 0.0,
+            "timestamp": 1741890156.1036592,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912625630159894,
+            "longitude": 10.745999492979102,
+            "altitude": 0.0,
+            "timestamp": 1741890156.491421,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912784777893116,
+            "longitude": 10.746159252064775,
+            "altitude": 0.0,
+            "timestamp": 1741890156.6238484,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912616867617935,
+            "longitude": 10.746167898396212,
+            "altitude": 0.0,
+            "timestamp": 1741890156.6501167,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912789351549335,
+            "longitude": 10.746118490942287,
+            "altitude": 0.0,
+            "timestamp": 1741890157.10325,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912620971499564,
+            "longitude": 10.74601480516555,
+            "altitude": 0.0,
+            "timestamp": 1741890157.4922152,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912787319681556,
+            "longitude": 10.746142074453362,
+            "altitude": 0.0,
+            "timestamp": 1741890157.6236572,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262068159103,
+            "longitude": 10.746184115993044,
+            "altitude": 0.0,
+            "timestamp": 1741890157.6498797,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912789830611096,
+            "longitude": 10.746100601676412,
+            "altitude": 0.0,
+            "timestamp": 1741890158.1038096,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912617102289,
+            "longitude": 10.74603096940498,
+            "altitude": 0.0,
+            "timestamp": 1741890158.4914312,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278898931176,
+            "longitude": 10.74612447374219,
+            "altitude": 0.0,
+            "timestamp": 1741890158.621769,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262528741782,
+            "longitude": 10.746199490441931,
+            "altitude": 0.0,
+            "timestamp": 1741890158.6494083,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912789412250945,
+            "longitude": 10.746082715959961,
+            "altitude": 0.0,
+            "timestamp": 1741890159.1032712,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261406136606,
+            "longitude": 10.746047823933587,
+            "altitude": 0.0,
+            "timestamp": 1741890159.4920576,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912789769950955,
+            "longitude": 10.746106611459004,
+            "altitude": 0.0,
+            "timestamp": 1741890159.6222293,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912630639908784,
+            "longitude": 10.7462138715467,
+            "altitude": 0.0,
+            "timestamp": 1741890159.6494894,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278810024477,
+            "longitude": 10.746064993822422,
+            "altitude": 0.0,
+            "timestamp": 1741890160.104973,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261187939465,
+            "longitude": 10.746065198332587,
+            "altitude": 0.0,
+            "timestamp": 1741890160.4918468,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912789652873606,
+            "longitude": 10.746088717481413,
+            "altitude": 0.0,
+            "timestamp": 1741890160.62267,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9126366862791,
+            "longitude": 10.746227116666539,
+            "altitude": 0.0,
+            "timestamp": 1741890160.6498537,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.9127859078343,
+            "longitude": 10.746047622505895,
+            "altitude": 0.0,
+            "timestamp": 1741890161.1039624,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912610577853606,
+            "longitude": 10.746082920870919,
+            "altitude": 0.0,
+            "timestamp": 1741890161.4926221,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278864033309,
+            "longitude": 10.746070920507766,
+            "altitude": 0.0,
+            "timestamp": 1741890161.6224937,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91264336441317,
+            "longitude": 10.746239089752466,
+            "altitude": 0.0,
+            "timestamp": 1741890161.649885,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278285739789,
+            "longitude": 10.746030777091898,
+            "altitude": 0.0,
+            "timestamp": 1741890162.1034248,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261016980311,
+            "longitude": 10.746100811242535,
+            "altitude": 0.0,
+            "timestamp": 1741890162.4937096,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278674234454,
+            "longitude": 10.746053415484663,
+            "altitude": 0.0,
+            "timestamp": 1741890162.6230543,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265060790533,
+            "longitude": 10.746249672503424,
+            "altitude": 0.0,
+            "timestamp": 1741890162.6494226,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277897920724,
+            "longitude": 10.746014623475611,
+            "altitude": 0.0,
+            "timestamp": 1741890163.1031852,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261065928388,
+            "longitude": 10.746118698061412,
+            "altitude": 0.0,
+            "timestamp": 1741890163.4917748,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91278397709079,
+            "longitude": 10.746036371986772,
+            "altitude": 0.0,
+            "timestamp": 1741890163.6222332,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91265834559157,
+            "longitude": 10.746258760848235,
+            "altitude": 0.0,
+            "timestamp": 1741890163.6494982,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277430989967,
+            "longitude": 10.745999316726135,
+            "altitude": 0.0,
+            "timestamp": 1741890164.1047049,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261204149879,
+            "longitude": 10.746136396822385,
+            "altitude": 0.0,
+            "timestamp": 1741890164.4918776,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912780373328395,
+            "longitude": 10.74601996754587,
+            "altitude": 0.0,
+            "timestamp": 1741890164.6218305,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91266649953331,
+            "longitude": 10.746266262922855,
+            "altitude": 0.0,
+            "timestamp": 1741890164.6498435,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912768901776545,
+            "longitude": 10.745985026668622,
+            "altitude": 0.0,
+            "timestamp": 1741890165.1048436,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261430197415,
+            "longitude": 10.746153727669912,
+            "altitude": 0.0,
+            "timestamp": 1741890165.4913948,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91277596679989,
+            "longitude": 10.746004363283626,
+            "altitude": 0.0,
+            "timestamp": 1741890165.6219528,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91267498822872,
+            "longitude": 10.746272103716528,
+            "altitude": 0.0,
+            "timestamp": 1741890165.6496284,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912762802868826,
+            "longitude": 10.745971878962171,
+            "altitude": 0.0,
+            "timestamp": 1741890166.104407,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91261741942506,
+            "longitude": 10.746170526849198,
+            "altitude": 0.0,
+            "timestamp": 1741890166.49213,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912770800307705,
+            "longitude": 10.745989711618806,
+            "altitude": 0.0,
+            "timestamp": 1741890166.6228032,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91268372690699,
+            "longitude": 10.746276224874215,
+            "altitude": 0.0,
+            "timestamp": 1741890166.6498315,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91275607497775,
+            "longitude": 10.745960009367046,
+            "altitude": 0.0,
+            "timestamp": 1741890167.1043534,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91262136170466,
+            "longitude": 10.746186619606075,
+            "altitude": 0.0,
+            "timestamp": 1741890167.4913547,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.91276492669332,
+            "longitude": 10.745976163002771,
+            "altitude": 0.0,
+            "timestamp": 1741890167.622408,
+            "type": "raw"
+          },
+          {
+            "latitude": 59.912692626864974,
+            "longitude": 10.746278584949932,
+            "altitude": 0.0,
+            "timestamp": 1741890167.649252,
+            "type": "raw"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.745942078597347,
+            59.91265755120483,
+            0.0
+          ],
+          [
+            10.746278292316985,
+            59.91270897828255,
+            0.0
+          ],
+          [
+            10.74593220581894,
+            59.91266847661543,
+            0.0
+          ],
+          [
+            10.746183788596033,
+            59.91277940544986,
+            0.0
+          ],
+          [
+            10.74595132342027,
+            59.91264985765593,
+            0.0
+          ],
+          [
+            10.746275613546493,
+            59.912717856924935,
+            0.0
+          ],
+          [
+            10.745939325391403,
+            59.912660232530385,
+            0.0
+          ],
+          [
+            10.74616755615457,
+            59.91278320242617,
+            0.0
+          ],
+          [
+            10.745962051374471,
+            59.91264266727632,
+            0.0
+          ],
+          [
+            10.746271180768966,
+            59.912726555894615,
+            0.0
+          ],
+          [
+            10.745948045558695,
+            59.912652391214046,
+            0.0
+          ],
+          [
+            10.746150650188127,
+            59.91278616774982,
+            0.0
+          ],
+          [
+            10.745974160721273,
+            59.91263604818445,
+            0.0
+          ],
+          [
+            10.74626503663792,
+            59.912734991209476,
+            0.0
+          ],
+          [
+            10.745958285364091,
+            59.91264502412766,
+            0.0
+          ],
+          [
+            10.746133240393048,
+            59.912788271963095,
+            0.0
+          ],
+          [
+            10.745987521941577,
+            59.912630070802216,
+            0.0
+          ],
+          [
+            10.746257243314865,
+            59.912743076789496,
+            0.0
+          ],
+          [
+            10.745969939908981,
+            59.91263820693874,
+            0.0
+          ],
+          [
+            10.746115494044416,
+            59.912789494671706,
+            0.0
+          ],
+          [
+            10.74600201129719,
+            59.912624790278926,
+            0.0
+          ],
+          [
+            10.74624788250534,
+            59.91275072906636,
+            0.0
+          ],
+          [
+            10.745982896214551,
+            59.91263200592372,
+            0.0
+          ],
+          [
+            10.74609759630279,
+            59.91278982303491,
+            0.0
+          ],
+          [
+            10.746017477895572,
+            59.91262026191986,
+            0.0
+          ],
+          [
+            10.74623704126676,
+            59.912757877019274,
+            0.0
+          ],
+          [
+            10.745997020514308,
+            59.91262648516918,
+            0.0
+          ],
+          [
+            10.746079720455235,
+            59.91278925397211,
+            0.0
+          ],
+          [
+            10.746033768935392,
+            59.9126165302577,
+            0.0
+          ],
+          [
+            10.746224828216759,
+            59.912764447882225,
+            0.0
+          ],
+          [
+            10.746012177790613,
+            59.91262169764782,
+            0.0
+          ],
+          [
+            10.746062048758025,
+            59.91278779324167,
+            0.0
+          ],
+          [
+            10.746050720409364,
+            59.91261363274421,
+            0.0
+          ],
+          [
+            10.746211370704849,
+            59.9127703732194,
+            0.0
+          ],
+          [
+            10.746028207800295,
+            59.91261769390878,
+            0.0
+          ],
+          [
+            10.746044748379438,
+            59.912785454154545,
+            0.0
+          ],
+          [
+            10.746068168207916,
+            59.91261159764873,
+            0.0
+          ],
+          [
+            10.746196798126324,
+            59.91277559620083,
+            0.0
+          ],
+          [
+            10.746044956867436,
+            59.9126145120378,
+            0.0
+          ],
+          [
+            10.74602801198054,
+            59.91278226309449,
+            0.0
+          ],
+          [
+            10.746085929895859,
+            59.91261044623817,
+            0.0
+          ],
+          [
+            10.74618126247773,
+            59.91278006254276,
+            0.0
+          ],
+          [
+            10.746062255091367,
+            59.91261218440589,
+            0.0
+          ],
+          [
+            10.74601198962355,
+            59.9127782492376,
+            0.0
+          ],
+          [
+            10.74610383444823,
+            59.91261018945215,
+            0.0
+          ],
+          [
+            10.74616491349234,
+            59.912783729470284,
+            0.0
+          ],
+          [
+            10.746079930875428,
+            59.91261073407541,
+            0.0
+          ],
+          [
+            10.745996844649458,
+            59.91277345283864,
+            0.0
+          ],
+          [
+            10.746121701250422,
+            59.912610830096845,
+            0.0
+          ],
+          [
+            10.74614791357212,
+            59.91278656021103,
+            0.0
+          ],
+          [
+            10.746097805834887,
+            59.912610175617324,
+            0.0
+          ],
+          [
+            10.745982715202587,
+            59.91276791562112,
+            0.0
+          ],
+          [
+            10.74613934782173,
+            59.91261236141187,
+            0.0
+          ],
+          [
+            10.74613043555449,
+            59.9127885258467,
+            0.0
+          ],
+          [
+            10.746115708573381,
+            59.91261051472771,
+            0.0
+          ],
+          [
+            10.745969794852181,
+            59.91276171623976,
+            0.0
+          ],
+          [
+            10.746156606451617,
+            59.91261476898933,
+            0.0
+          ],
+          [
+            10.746112657072464,
+            59.912789606739274,
+            0.0
+          ],
+          [
+            10.746133448150305,
+            59.91261174776256,
+            0.0
+          ],
+          [
+            10.745958151407612,
+            59.91275488897968,
+            0.0
+          ],
+          [
+            10.746173298714892,
+            59.91261802830638,
+            0.0
+          ],
+          [
+            10.74609474770562,
+            59.91278979251967,
+            0.0
+          ],
+          [
+            10.746150860616165,
+            59.91261386340663,
+            0.0
+          ],
+          [
+            10.745947930772688,
+            59.91274751658653,
+            0.0
+          ],
+          [
+            10.746189253319088,
+            59.91262210539142,
+            0.0
+          ],
+          [
+            10.74607689144229,
+            59.91278908099153,
+            0.0
+          ],
+          [
+            10.746167755589607,
+            59.91261683834054,
+            0.0
+          ],
+          [
+            10.745939227645348,
+            59.91273966806146,
+            0.0
+          ],
+          [
+            10.746204316865915,
+            59.91262696058805,
+            0.0
+          ],
+          [
+            10.746059270264725,
+            59.91278747977433,
+            0.0
+          ],
+          [
+            10.74618397948569,
+            59.91262064524668,
+            0.0
+          ],
+          [
+            10.745932131369285,
+            59.912731423610154,
+            0.0
+          ],
+          [
+            10.746218345691071,
+            59.912632548486144,
+            0.0
+          ],
+          [
+            10.74604205256962,
+            59.91278500422767,
+            0.0
+          ],
+          [
+            10.746199362678505,
+            59.912625244698994,
+            0.0
+          ],
+          [
+            10.745926712290732,
+            59.91272286511273,
+            0.0
+          ],
+          [
+            10.74623118549023,
+            59.912638807739576,
+            0.0
+          ],
+          [
+            10.746025412590447,
+            59.912781679017144,
+            0.0
+          ],
+          [
+            10.746213752413535,
+            59.91263059079702,
+            0.0
+          ],
+          [
+            10.74592302517139,
+            59.91271407987242,
+            0.0
+          ],
+          [
+            10.746242716576308,
+            59.912645679429474,
+            0.0
+          ],
+          [
+            10.746009519662694,
+            59.91277753802078,
+            0.0
+          ],
+          [
+            10.746227005456884,
+            59.91263663021393,
+            0.0
+          ],
+          [
+            10.745921105206167,
+            59.9127051503501,
+            0.0
+          ],
+          [
+            10.746252821675345,
+            59.91265309403697,
+            0.0
+          ],
+          [
+            10.745994531802172,
+            59.91277262267998,
+            0.0
+          ],
+          [
+            10.74623899247945,
+            59.91264330442791,
+            0.0
+          ],
+          [
+            10.745920973117716,
+            59.912696173207976,
+            0.0
+          ],
+          [
+            10.746261397698987,
+            59.91266097536396,
+            0.0
+          ],
+          [
+            10.745980595611869,
+            59.91276698095228,
+            0.0
+          ],
+          [
+            10.746249588860323,
+            59.91265054426361,
+            0.0
+          ],
+          [
+            10.745922629742326,
+            59.91268723175161,
+            0.0
+          ],
+          [
+            10.746268362284304,
+            59.91266924729826,
+            0.0
+          ],
+          [
+            10.745967853785757,
+            59.91276067051459,
+            0.0
+          ],
+          [
+            10.746258688755049,
+            59.91265827660782,
+            0.0
+          ],
+          [
+            10.74592605932014,
+            59.91267841687102,
+            0.0
+          ],
+          [
+            10.746273645903212,
+            59.9126778283542,
+            0.0
+          ],
+          [
+            10.745956431574996,
+            59.91275375345966,
+            0.0
+          ],
+          [
+            10.746266204815806,
+            59.912666427146945,
+            0.0
+          ],
+          [
+            10.74593122685534,
+            59.91266981860124,
+            0.0
+          ],
+          [
+            10.746277193755693,
+            59.91268663002878,
+            0.0
+          ],
+          [
+            10.745946447087876,
+            59.9127463018941,
+            0.0
+          ],
+          [
+            10.746272060197033,
+            59.91267491309218,
+            0.0
+          ],
+          [
+            10.745938079752564,
+            59.91266152323085,
+            0.0
+          ],
+          [
+            10.746278971055006,
+            59.91269556522319,
+            0.0
+          ],
+          [
+            10.745937992205262,
+            59.91273838404035,
+            0.0
+          ],
+          [
+            10.746276196794232,
+            59.912683650669,
+            0.0
+          ],
+          [
+            10.745946549049036,
+            59.91265361323081,
+            0.0
+          ],
+          [
+            10.746278960027658,
+            59.91270454524102,
+            0.0
+          ],
+          [
+            10.745931156886538,
+            59.9127300828852,
+            0.0
+          ],
+          [
+            10.746278572218818,
+            59.912692549773325,
+            0.0
+          ],
+          [
+            10.745956556470789,
+            59.9126461628064,
+            0.0
+          ],
+          [
+            10.746277160809449,
+            59.91271347925118,
+            0.0
+          ],
+          [
+            10.745926009767038,
+            59.91272148251434,
+            0.0
+          ],
+          [
+            10.746279163710051,
+            59.91270152545225,
+            0.0
+          ],
+          [
+            10.74596799310651,
+            59.912639253309166,
+            0.0
+          ],
+          [
+            10.746273592603766,
+            59.91272227629291,
+            0.0
+          ],
+          [
+            10.74592260152046,
+            59.91271266932851,
+            0.0
+          ],
+          [
+            10.746277965062324,
+            59.912710483809214,
+            0.0
+          ],
+          [
+            10.745980747971128,
+            59.91263295086601,
+            0.0
+          ],
+          [
+            10.746268287634066,
+            59.91273085522004,
+            0.0
+          ],
+          [
+            10.74592096474036,
+            59.91270372699237,
+            0.0
+          ],
+          [
+            10.746274988229517,
+            59.9127193382684,
+            0.0
+          ],
+          [
+            10.745994694790827,
+            59.91262731790154,
+            0.0
+          ],
+          [
+            10.746261302626285,
+            59.91273912330169,
+            0.0
+          ],
+          [
+            10.74592111714889,
+            59.91269474643367,
+            0.0
+          ],
+          [
+            10.74627026238193,
+            59.91272800042714,
+            0.0
+          ],
+          [
+            10.7460096959457,
+            59.91262241034824,
+            0.0
+          ],
+          [
+            10.746252705981936,
+            59.91274700056314,
+            0.0
+          ],
+          [
+            10.745923056702908,
+            59.91268582088015,
+            0.0
+          ],
+          [
+            10.746263836583015,
+            59.91273638093533,
+            0.0
+          ],
+          [
+            10.746025596257466,
+            59.91261827889396,
+            0.0
+          ],
+          [
+            10.746242583306643,
+            59.91275440845571,
+            0.0
+          ],
+          [
+            10.745926764387292,
+            59.91267703588908,
+            0.0
+          ],
+          [
+            10.74625577252828,
+            59.91274439946724,
+            0.0
+          ],
+          [
+            10.746042242427434,
+            59.912614963304335,
+            0.0
+          ],
+          [
+            10.746231036534994,
+            59.91276127241759,
+            0.0
+          ],
+          [
+            10.745932203924495,
+            59.91266847914983,
+            0.0
+          ],
+          [
+            10.746246153350532,
+            59.912751973243495,
+            0.0
+          ],
+          [
+            10.746059467371026,
+            59.91261249722061,
+            0.0
+          ],
+          [
+            10.746218179556854,
+            59.91276752467959,
+            0.0
+          ],
+          [
+            10.745939317999703,
+            59.91266024003698,
+            0.0
+          ],
+          [
+            10.746235072844893,
+            59.91275902851527,
+            0.0
+          ],
+          [
+            10.746077094542914,
+            59.91261090582644,
+            0.0
+          ],
+          [
+            10.746204144593625,
+            59.91277310117072,
+            0.0
+          ],
+          [
+            10.74594803861326,
+            59.91265239678577,
+            0.0
+          ],
+          [
+            10.746222643239609,
+            59.912765493690685,
+            0.0
+          ],
+          [
+            10.746094950810999,
+            59.91261020455232,
+            0.0
+          ],
+          [
+            10.746189064906313,
+            59.91277794878945,
+            0.0
+          ],
+          [
+            10.74595827764969,
+            59.912645029125756,
+            0.0
+          ],
+          [
+            10.74620898826226,
+            59.91277130449854,
+            0.0
+          ],
+          [
+            10.746112857099908,
+            59.912610400417975,
+            0.0
+          ],
+          [
+            10.746173096098612,
+            59.912782017152004,
+            0.0
+          ],
+          [
+            10.745969934091267,
+            59.91263821001629,
+            0.0
+          ],
+          [
+            10.746194243823822,
+            59.91277640304173,
+            0.0
+          ],
+          [
+            10.746130636218021,
+            59.91261149155052,
+            0.0
+          ],
+          [
+            10.746156401321139,
+            59.912785265181235,
+            0.0
+          ],
+          [
+            10.745982887294078,
+            59.91263200978512,
+            0.0
+          ],
+          [
+            10.746178558440572,
+            59.91278073798321,
+            0.0
+          ],
+          [
+            10.746148108924729,
+            59.9126134670248,
+            0.0
+          ],
+          [
+            10.746139137043924,
+            59.91278766230487,
+            0.0
+          ],
+          [
+            10.745997011953275,
+            59.91262648818328,
+            0.0
+          ],
+          [
+            10.746162085871884,
+            59.91278426668953,
+            0.0
+          ],
+          [
+            10.746165104191869,
+            59.91261630774905,
+            0.0
+          ],
+          [
+            10.746121482578578,
+            59.91278918320959,
+            0.0
+          ],
+          [
+            10.746012165674378,
+            59.91262170106341,
+            0.0
+          ],
+          [
+            10.746144991595164,
+            59.91278695340907,
+            0.0
+          ],
+          [
+            10.746181444748373,
+            59.912619984017866,
+            0.0
+          ],
+          [
+            10.746103617366925,
+            59.91278981281119,
+            0.0
+          ],
+          [
+            10.74602819882604,
+            59.912617695876236,
+            0.0
+          ],
+          [
+            10.746127455388518,
+            59.91278877040352,
+            0.0
+          ],
+          [
+            10.746196970851688,
+            59.91262445945345,
+            0.0
+          ],
+          [
+            10.74608571203877,
+            59.91278954509254,
+            0.0
+          ],
+          [
+            10.746044945741097,
+            59.91261451383844,
+            0.0
+          ],
+          [
+            10.746109642699633,
+            59.91278970095572,
+            0.0
+          ],
+          [
+            10.746211532308482,
+            59.91262969113178,
+            0.0
+          ],
+          [
+            10.746067953114764,
+            59.912788382818455,
+            0.0
+          ],
+          [
+            10.74606224650611,
+            59.9126121853334,
+            0.0
+          ],
+          [
+            10.746091728909546,
+            59.91278973536976,
+            0.0
+          ],
+          [
+            10.746224974159382,
+            59.91263562324045,
+            0.0
+          ],
+          [
+            10.746050511562448,
+            59.912786337238664,
+            0.0
+          ],
+          [
+            10.746079921040334,
+            59.91261073463126,
+            0.0
+          ],
+          [
+            10.746073900226907,
+            59.91278887311447,
+            0.0
+          ],
+          [
+            10.746237171980926,
+            59.91264220085526,
+            0.0
+          ],
+          [
+            10.746033566902382,
+            59.912783429382394,
+            0.0
+          ],
+          [
+            10.746097797300969,
+            59.91261017566982,
+            0.0
+          ],
+          [
+            10.746056332365015,
+            59.912787122877,
+            0.0
+          ],
+          [
+            10.746247996289824,
+            59.91264935439697,
+            0.0
+          ],
+          [
+            10.746017283256629,
+            59.91277968737961,
+            0.0
+          ],
+          [
+            10.746115698084209,
+            59.912610514265104,
+            0.0
+          ],
+          [
+            10.746039201969362,
+            59.91278450235329,
+            0.0
+          ],
+          [
+            10.746257346099373,
+            59.91265701763898,
+            0.0
+          ],
+          [
+            10.746001830285957,
+            59.912775150372795,
+            0.0
+          ],
+          [
+            10.746133441264094,
+            59.91261174710671,
+            0.0
+          ],
+          [
+            10.746022676673554,
+            59.91278103708505,
+            0.0
+          ],
+          [
+            10.746265117318249,
+            59.91266510458012,
+            0.0
+          ],
+          [
+            10.745987354096716,
+            59.912769861264835,
+            0.0
+          ],
+          [
+            10.746150846332734,
+            59.91261386128735,
+            0.0
+          ],
+          [
+            10.746006925229777,
+            59.91277676236297,
+            0.0
+          ],
+          [
+            10.746271240709422,
+            59.91267354140581,
+            0.0
+          ],
+          [
+            10.745974004430087,
+            59.91276387443024,
+            0.0
+          ],
+          [
+            10.746167747162582,
+            59.91261683661512,
+            0.0
+          ],
+          [
+            10.745992103605195,
+            59.91277172061482,
+            0.0
+          ],
+          [
+            10.746275654736225,
+            59.91268224518382,
+            0.0
+          ],
+          [
+            10.745961914788012,
+            59.91275725002873,
+            0.0
+          ],
+          [
+            10.746183968602514,
+            59.91262064235235,
+            0.0
+          ],
+          [
+            10.745978359812959,
+            59.91276596214375,
+            0.0
+          ],
+          [
+            10.74627831262266,
+            59.912691123642745,
+            0.0
+          ],
+          [
+            10.745951202172316,
+            59.912750051873026,
+            0.0
+          ],
+          [
+            10.746199353713125,
+            59.91262524170432,
+            0.0
+          ],
+          [
+            10.745965834614356,
+            59.91275954635985,
+            0.0
+          ],
+          [
+            10.746279189453363,
+            59.91270009231263,
+            0.0
+          ],
+          [
+            10.745941977769261,
+            59.91274235438751,
+            0.0
+          ],
+          [
+            10.74621374483863,
+            59.912630587677235,
+            0.0
+          ],
+          [
+            10.74595464796439,
+            59.912752534973514,
+            0.0
+          ],
+          [
+            10.746278275870484,
+            59.91270905998771,
+            0.0
+          ],
+          [
+            10.745934333423333,
+            59.91273423490787,
+            0.0
+          ],
+          [
+            10.746226999806893,
+            59.91263662736818,
+            0.0
+          ],
+          [
+            10.745944909211877,
+            59.912744995272924,
+            0.0
+          ],
+          [
+            10.746275580506436,
+            59.91271793839348,
+            0.0
+          ],
+          [
+            10.745928343505405,
+            59.912725772582704,
+            0.0
+          ],
+          [
+            10.746238985429073,
+            59.91264330008426,
+            0.0
+          ],
+          [
+            10.745936723355412,
+            59.91273700817714,
+            0.0
+          ],
+          [
+            10.746271131951984,
+            59.9127266348508,
+            0.0
+          ],
+          [
+            10.745924068264886,
+            59.91271705161607,
+            0.0
+          ],
+          [
+            10.746249582220932,
+            59.91265053921691,
+            0.0
+          ],
+          [
+            10.745930171392121,
+            59.91272865483231,
+            0.0
+          ],
+          [
+            10.746264971613007,
+            59.91273506818744,
+            0.0
+          ],
+          [
+            10.745921551589944,
+            59.91270816179061,
+            0.0
+          ],
+          [
+            10.746258683959365,
+            59.91265827202413,
+            0.0
+          ],
+          [
+            10.745925312327621,
+            59.91272000954333,
+            0.0
+          ],
+          [
+            10.746257166411597,
+            59.91274314726539,
+            0.0
+          ],
+          [
+            10.745920818112994,
+            59.91269916934121,
+            0.0
+          ],
+          [
+            10.74626620084829,
+            59.91266642221105,
+            0.0
+          ],
+          [
+            10.74592219988171,
+            59.91271116503882,
+            0.0
+          ],
+          [
+            10.74624778550536,
+            59.91275080005905,
+            0.0
+          ],
+          [
+            10.745921874295137,
+            59.912690225856764,
+            0.0
+          ],
+          [
+            10.746272057486449,
+            59.91267490842043,
+            0.0
+          ],
+          [
+            10.745920864831525,
+            59.91270221294243,
+            0.0
+          ],
+          [
+            10.746236929073156,
+            59.912757943717395,
+            0.0
+          ],
+          [
+            10.74592471089334,
+            59.912681359135625,
+            0.0
+          ],
+          [
+            10.746276194622396,
+            59.91268364478771,
+            0.0
+          ],
+          [
+            10.745921318929383,
+            59.912693237411524,
+            0.0
+          ],
+          [
+            10.746224708293227,
+            59.91276450620412,
+            0.0
+          ],
+          [
+            10.745929298353836,
+            59.91267267999288,
+            0.0
+          ],
+          [
+            10.746278571368977,
+            59.9126925446558,
+            0.0
+          ],
+          [
+            10.74592355908075,
+            59.912684326295704,
+            0.0
+          ],
+          [
+            10.74621123951184,
+            59.91277042534917,
+            0.0
+          ],
+          [
+            10.745935590940853,
+            59.912664274013935,
+            0.0
+          ],
+          [
+            10.746279163921578,
+            59.91270151919564,
+            0.0
+          ],
+          [
+            10.745927561733408,
+            59.91267557419736,
+            0.0
+          ],
+          [
+            10.746196659771275,
+            59.91277564067953,
+            0.0
+          ],
+          [
+            10.745943524190613,
+            59.91265622645686,
+            0.0
+          ],
+          [
+            10.74627796625551,
+            59.91271047871756,
+            0.0
+          ],
+          [
+            10.745933285067295,
+            59.912667068933004,
+            0.0
+          ],
+          [
+            10.746181116825934,
+            59.91278009965479,
+            0.0
+          ],
+          [
+            10.74595303670261,
+            59.912648603966424,
+            0.0
+          ],
+          [
+            10.746274990484025,
+            59.91271933314059,
+            0.0
+          ],
+          [
+            10.745940678983246,
+            59.91265888662556,
+            0.0
+          ],
+          [
+            10.746164752087621,
+            59.91278376087388,
+            0.0
+          ],
+          [
+            10.745963994143523,
+            59.91264151238001,
+            0.0
+          ],
+          [
+            10.746270265682385,
+            59.91272799538285,
+            0.0
+          ],
+          [
+            10.745949664345519,
+            59.912651116684025,
+            0.0
+          ],
+          [
+            10.746147756989156,
+            59.91278658195547,
+            0.0
+          ],
+          [
+            10.745976321092655,
+            59.912634997618326,
+            0.0
+          ],
+          [
+            10.746263839963142,
+            59.912736377109496,
+            0.0
+          ],
+          [
+            10.745960147234566,
+            59.9126438386306,
+            0.0
+          ],
+          [
+            10.746130276892991,
+            59.91278853951908,
+            0.0
+          ],
+          [
+            10.745989883944738,
+            59.912629132312844,
+            0.0
+          ],
+          [
+            10.746255778110289,
+            59.912744394544994,
+            0.0
+          ],
+          [
+            10.745972032191995,
+            59.912637118665174,
+            0.0
+          ],
+          [
+            10.746112492769008,
+            59.9127896125339,
+            0.0
+          ],
+          [
+            10.746004546945692,
+            59.91262397516839,
+            0.0
+          ],
+          [
+            10.746246158026185,
+            59.91275196993889,
+            0.0
+          ],
+          [
+            10.745985191751856,
+            59.91263102907728,
+            0.0
+          ],
+          [
+            10.746094581429313,
+            59.91278979003657,
+            0.0
+          ],
+          [
+            10.746020163957164,
+            59.91261957759403,
+            0.0
+          ],
+          [
+            10.746235079760964,
+            59.91275902453768,
+            0.0
+          ],
+          [
+            10.745999497353202,
+            59.91262562867429,
+            0.0
+          ],
+          [
+            10.746076732527639,
+            59.91278907059481,
+            0.0
+          ],
+          [
+            10.74603657915559,
+            59.912615983533286,
+            0.0
+          ],
+          [
+            10.746222650854044,
+            59.912765490106956,
+            0.0
+          ],
+          [
+            10.746014813684942,
+            59.91262096919155,
+            0.0
+          ],
+          [
+            10.74605910901022,
+            59.91278746086614,
+            0.0
+          ],
+          [
+            10.746053624405475,
+            59.91261322952513,
+            0.0
+          ],
+          [
+            10.746208995504501,
+            59.912771301716354,
+            0.0
+          ],
+          [
+            10.746030977970847,
+            59.91261710049647,
+            0.0
+          ],
+          [
+            10.746041897042055,
+            59.9127849775419,
+            0.0
+          ],
+          [
+            10.746071137287881,
+            59.91261134186209,
+            0.0
+          ],
+          [
+            10.746194250624699,
+            59.91277640093331,
+            0.0
+          ],
+          [
+            10.746047830508495,
+            59.9126140603629,
+            0.0
+          ],
+          [
+            10.74602526406727,
+            59.91278164488996,
+            0.0
+          ],
+          [
+            10.746088934796836,
+            59.91261034031962,
+            0.0
+          ],
+          [
+            10.74617856522801,
+            59.91278073632335,
+            0.0
+          ],
+          [
+            10.74606520879594,
+            59.91261187835628,
+            0.0
+          ],
+          [
+            10.746009379127228,
+            59.91277749676295,
+            0.0
+          ],
+          [
+            10.746106846228125,
+            59.91261023447177,
+            0.0
+          ],
+          [
+            10.746162094747346,
+            59.91278426504595,
+            0.0
+          ],
+          [
+            10.746082928158854,
+            59.912610577503855,
+            0.0
+          ],
+          [
+            10.745994397257313,
+            59.91277257352488,
+            0.0
+          ],
+          [
+            10.746124688813495,
+            59.9126110256201,
+            0.0
+          ],
+          [
+            10.746145002759249,
+            59.91278695195711,
+            0.0
+          ],
+          [
+            10.74610082400218,
+            59.9126101698323,
+            0.0
+          ],
+          [
+            10.745980472852816,
+            59.91276692590289,
+            0.0
+          ],
+          [
+            10.746142280021047,
+            59.91261270527652,
+            0.0
+          ],
+          [
+            10.74612746505924,
+            59.912788769651684,
+            0.0
+          ],
+          [
+            10.746118706982745,
+            59.91261065975324,
+            0.0
+          ],
+          [
+            10.745967743380541,
+            59.9127606100233,
+            0.0
+          ],
+          [
+            10.746159449939046,
+            59.91261525692877,
+            0.0
+          ],
+          [
+            10.746109648256938,
+            59.91278970080553,
+            0.0
+          ],
+          [
+            10.74613640389896,
+            59.9126120422348,
+            0.0
+          ],
+          [
+            10.745956331840413,
+            59.91275368644835,
+            0.0
+          ],
+          [
+            10.746176035144977,
+            59.91261865715492,
+            0.0
+          ],
+          [
+            10.746091736743658,
+            59.91278973555115,
+            0.0
+          ],
+          [
+            10.746153739133334,
+            59.912614303780586,
+            0.0
+          ],
+          [
+            10.745946358265632,
+            59.91274622778312,
+            0.0
+          ],
+          [
+            10.746191848612657,
+            59.91262286734718,
+            0.0
+          ],
+          [
+            10.746073909879314,
+            59.91278887382675,
+            0.0
+          ],
+          [
+            10.746170538252954,
+            59.912617421872966,
+            0.0
+          ],
+          [
+            10.745937921683442,
+            59.91273830914491,
+            0.0
+          ],
+          [
+            10.746206749125289,
+            59.91262784921424,
+            0.0
+          ],
+          [
+            10.74605634186879,
+            59.912787124074015,
+            0.0
+          ],
+          [
+            10.746186627869982,
+            59.912621363992486,
+            0.0
+          ],
+          [
+            10.745931101128829,
+            59.9127300041194,
+            0.0
+          ],
+          [
+            10.746220589659679,
+            59.91263355485153,
+            0.0
+          ],
+          [
+            10.746039207188554,
+            59.91278450329698,
+            0.0
+          ],
+          [
+            10.746201855832545,
+            59.912626092792706,
+            0.0
+          ],
+          [
+            10.74592597020911,
+            59.91272140183409,
+            0.0
+          ],
+          [
+            10.746233217809714,
+            59.912639921342716,
+            0.0
+          ],
+          [
+            10.746022684827492,
+            59.912781039040254,
+            0.0
+          ],
+          [
+            10.746216063122052,
+            59.91263155895281,
+            0.0
+          ],
+          [
+            10.74592257763234,
+            59.91271258497874,
+            0.0
+          ],
+          [
+            10.746244515273505,
+            59.9126468880308,
+            0.0
+          ],
+          [
+            10.746006933117902,
+            59.91277676476656,
+            0.0
+          ],
+          [
+            10.746229115851218,
+            59.91263771126356,
+            0.0
+          ],
+          [
+            10.745920957855708,
+            59.912703642925564,
+            0.0
+          ],
+          [
+            10.746254372548348,
+            59.91265438821035,
+            0.0
+          ],
+          [
+            10.74599210877856,
+            59.91277172257073,
+            0.0
+          ],
+          [
+            10.746240875162293,
+            59.91264448453806,
+            0.0
+          ],
+          [
+            10.745921126812709,
+            59.91269466437936,
+            0.0
+          ],
+          [
+            10.746262683693107,
+            59.9126623412679,
+            0.0
+          ],
+          [
+            10.74597836573172,
+            59.912765964886724,
+            0.0
+          ],
+          [
+            10.746251224711779,
+            59.91265181080635,
+            0.0
+          ],
+          [
+            10.74592308359305,
+            59.912685736801166,
+            0.0
+          ],
+          [
+            10.7462693706691,
+            59.912670671895945,
+            0.0
+          ],
+          [
+            10.745965836380616,
+            59.91275954736,
+            0.0
+          ],
+          [
+            10.746260066971852,
+            59.912659621384016,
+            0.0
+          ],
+          [
+            10.745926806853376,
+            59.91267695552804,
+            0.0
+          ],
+          [
+            10.746274365048976,
+            59.912679295321894,
+            0.0
+          ],
+          [
+            10.745954648503291,
+            59.91275253534823,
+            0.0
+          ],
+          [
+            10.746267307265608,
+            59.91266783276845,
+            0.0
+          ],
+          [
+            10.74593226072339,
+            59.91266840326481,
+            0.0
+          ],
+          [
+            10.746277617072002,
+            59.912688125301564,
+            0.0
+          ],
+          [
+            10.745944912986133,
+            59.91274499854225,
+            0.0
+          ],
+          [
+            10.746272877955327,
+            59.91267636821214,
+            0.0
+          ],
+          [
+            10.74593939140504,
+            59.91266016556868,
+            0.0
+          ],
+          [
+            10.746279094219728,
+            59.91269707019646,
+            0.0
+          ],
+          [
+            10.745936727401457,
+            59.91273701266308,
+            0.0
+          ],
+          [
+            10.746276720128074,
+            59.91268513785487,
+            0.0
+          ],
+          [
+            10.745948125878536,
+            59.91265232684618,
+            0.0
+          ],
+          [
+            10.746278782243442,
+            59.91270605338301,
+            0.0
+          ],
+          [
+            10.745930172164408,
+            59.912728655982605,
+            0.0
+          ],
+          [
+            10.746278796762873,
+            59.91269405536982,
+            0.0
+          ],
+          [
+            10.745958379631942,
+            59.912644963110914,
+            0.0
+          ],
+          [
+            10.746276683965837,
+            59.91271496980985,
+            0.0
+          ],
+          [
+            10.745925313397011,
+            59.91272001188951,
+            0.0
+          ],
+          [
+            10.746279087243709,
+            59.91270303508138,
+            0.0
+          ],
+          [
+            10.745970045732028,
+            59.9126381510094,
+            0.0
+          ],
+          [
+            10.746272820987528,
+            59.91272373627675,
+            0.0
+          ],
+          [
+            10.745922201300711,
+            59.9127111707165,
+            0.0
+          ],
+          [
+            10.746277588366693,
+            59.91271198211165,
+            0.0
+          ],
+          [
+            10.745983014705661,
+            59.9126319546812,
+            0.0
+          ],
+          [
+            10.746267228934963,
+            59.912732269436056,
+            0.0
+          ],
+          [
+            10.745920864985994,
+            59.91270221608275,
+            0.0
+          ],
+          [
+            10.746274314593224,
+            59.91272081117857,
+            0.0
+          ],
+          [
+            10.745997149341415,
+            59.912626439857966,
+            0.0
+          ],
+          [
+            10.746259969483496,
+            59.91274047559501,
+            0.0
+          ],
+          [
+            10.745921318738139,
+            59.91269323868159,
+            0.0
+          ],
+          [
+            10.746269299779815,
+            59.912729430790364,
+            0.0
+          ],
+          [
+            10.746012308098898,
+            59.912621660952915,
+            0.0
+          ],
+          [
+            10.746251108686604,
+            59.91274828057875,
+            0.0
+          ],
+          [
+            10.745923557451743,
+            59.91268433090511,
+            0.0
+          ],
+          [
+            10.746262591493961,
+            59.912737758671,
+            0.0
+          ],
+          [
+            10.746028353962574,
+            59.91261766190642,
+            0.0
+          ],
+          [
+            10.74624073553507,
+            59.91275560439349,
+            0.0
+          ],
+          [
+            10.745927559821824,
+            59.912675577589226,
+            0.0
+          ],
+          [
+            10.746254260407804,
+            59.91274570704138,
+            0.0
+          ],
+          [
+            10.746045104072907,
+            59.91261448825249,
+            0.0
+          ],
+          [
+            10.746228959967853,
+            59.912762369842476,
+            0.0
+          ],
+          [
+            10.745933284712265,
+            59.91266706938472,
+            0.0
+          ],
+          [
+            10.746244389567455,
+            59.91275319782428,
+            0.0
+          ],
+          [
+            10.746062410495917,
+            59.91261216765482,
+            0.0
+          ],
+          [
+            10.746215896981111,
+            59.91276851176801,
+            0.0
+          ],
+          [
+            10.74594067557202,
+            59.91265888994795,
+            0.0
+          ],
+          [
+            10.746233072860877,
+            59.912760159335676,
+            0.0
+          ],
+          [
+            10.746080083876103,
+            59.912610725463786,
+            0.0
+          ],
+          [
+            10.746201675356343,
+            59.91277396963523,
+            0.0
+          ],
+          [
+            10.745949658334574,
+            59.91265112133026,
+            0.0
+          ],
+          [
+            10.746220428085875,
+            59.91276651875469,
+            0.0
+          ],
+          [
+            10.746097966890337,
+            59.912610174664884,
+            0.0
+          ],
+          [
+            10.74618643776001,
+            59.91277868856656,
+            0.0
+          ],
+          [
+            10.745960142945966,
+            59.912643841314676,
+            0.0
+          ],
+          [
+            10.746206579530188,
+            59.912772213769756,
+            0.0
+          ],
+          [
+            10.746115862060199,
+            59.91261052153254,
+            0.0
+          ],
+          [
+            10.746170336930069,
+            59.91278262127373,
+            0.0
+          ],
+          [
+            10.745972023795805,
+            59.91263712295973,
+            0.0
+          ],
+          [
+            10.746191666816223,
+            59.91277718698599,
+            0.0
+          ],
+          [
+            10.74613360051431,
+            59.91261176230981,
+            0.0
+          ],
+          [
+            10.746153528718704,
+            59.91278572930953,
+            0.0
+          ],
+          [
+            10.745985185402645,
+            59.912631031733575,
+            0.0
+          ],
+          [
+            10.746175841326544,
+            59.91278138830652,
+            0.0
+          ],
+          [
+            10.746151004914044,
+            59.9126138848529,
+            0.0
+          ],
+          [
+            10.746136189468675,
+            59.91278798000098,
+            0.0
+          ],
+          [
+            10.745999492979102,
+            59.912625630159894,
+            0.0
+          ],
+          [
+            10.746159252064775,
+            59.912784777893116,
+            0.0
+          ],
+          [
+            10.746167898396212,
+            59.912616867617935,
+            0.0
+          ],
+          [
+            10.746118490942287,
+            59.912789351549335,
+            0.0
+          ],
+          [
+            10.74601480516555,
+            59.912620971499564,
+            0.0
+          ],
+          [
+            10.746142074453362,
+            59.912787319681556,
+            0.0
+          ],
+          [
+            10.746184115993044,
+            59.91262068159103,
+            0.0
+          ],
+          [
+            10.746100601676412,
+            59.912789830611096,
+            0.0
+          ],
+          [
+            10.74603096940498,
+            59.912617102289,
+            0.0
+          ],
+          [
+            10.74612447374219,
+            59.91278898931176,
+            0.0
+          ],
+          [
+            10.746199490441931,
+            59.91262528741782,
+            0.0
+          ],
+          [
+            10.746082715959961,
+            59.912789412250945,
+            0.0
+          ],
+          [
+            10.746047823933587,
+            59.91261406136606,
+            0.0
+          ],
+          [
+            10.746106611459004,
+            59.912789769950955,
+            0.0
+          ],
+          [
+            10.7462138715467,
+            59.912630639908784,
+            0.0
+          ],
+          [
+            10.746064993822422,
+            59.91278810024477,
+            0.0
+          ],
+          [
+            10.746065198332587,
+            59.91261187939465,
+            0.0
+          ],
+          [
+            10.746088717481413,
+            59.912789652873606,
+            0.0
+          ],
+          [
+            10.746227116666539,
+            59.9126366862791,
+            0.0
+          ],
+          [
+            10.746047622505895,
+            59.9127859078343,
+            0.0
+          ],
+          [
+            10.746082920870919,
+            59.912610577853606,
+            0.0
+          ],
+          [
+            10.746070920507766,
+            59.91278864033309,
+            0.0
+          ],
+          [
+            10.746239089752466,
+            59.91264336441317,
+            0.0
+          ],
+          [
+            10.746030777091898,
+            59.91278285739789,
+            0.0
+          ],
+          [
+            10.746100811242535,
+            59.91261016980311,
+            0.0
+          ],
+          [
+            10.746053415484663,
+            59.91278674234454,
+            0.0
+          ],
+          [
+            10.746249672503424,
+            59.91265060790533,
+            0.0
+          ],
+          [
+            10.746014623475611,
+            59.91277897920724,
+            0.0
+          ],
+          [
+            10.746118698061412,
+            59.91261065928388,
+            0.0
+          ],
+          [
+            10.746036371986772,
+            59.91278397709079,
+            0.0
+          ],
+          [
+            10.746258760848235,
+            59.91265834559157,
+            0.0
+          ],
+          [
+            10.745999316726135,
+            59.91277430989967,
+            0.0
+          ],
+          [
+            10.746136396822385,
+            59.91261204149879,
+            0.0
+          ],
+          [
+            10.74601996754587,
+            59.912780373328395,
+            0.0
+          ],
+          [
+            10.746266262922855,
+            59.91266649953331,
+            0.0
+          ],
+          [
+            10.745985026668622,
+            59.912768901776545,
+            0.0
+          ],
+          [
+            10.746153727669912,
+            59.91261430197415,
+            0.0
+          ],
+          [
+            10.746004363283626,
+            59.91277596679989,
+            0.0
+          ],
+          [
+            10.746272103716528,
+            59.91267498822872,
+            0.0
+          ],
+          [
+            10.745971878962171,
+            59.912762802868826,
+            0.0
+          ],
+          [
+            10.746170526849198,
+            59.91261741942506,
+            0.0
+          ],
+          [
+            10.745989711618806,
+            59.912770800307705,
+            0.0
+          ],
+          [
+            10.746276224874215,
+            59.91268372690699,
+            0.0
+          ],
+          [
+            10.745960009367046,
+            59.91275607497775,
+            0.0
+          ],
+          [
+            10.746186619606075,
+            59.91262136170466,
+            0.0
+          ],
+          [
+            10.745976163002771,
+            59.91276492669332,
+            0.0
+          ],
+          [
+            10.746278584949932,
+            59.912692626864974,
+            0.0
+          ]
+        ]
+      }
+    }
+  ]
+}

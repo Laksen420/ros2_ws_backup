@@ -30,6 +30,8 @@ setup(
         'console_scripts': [
             'gps_to_odom_node.py = fusion_localization.gps_to_odom_node:main',
             'gps_simulator_node.py = fusion_localization.gps_simulator_node:main',
+            'foxglove_path_publisher_node.py = fusion_localization.foxglove_path_publisher_node:main',
+            'gps_diagnostic_node.py = fusion_localization.gps_diagnostic_node:main',
         ],
     },
 )

@@ -14,21 +14,24 @@ def generate_launch_description():
     )
     
     return LaunchDescription([
-        # Use GPS simulator instead of real GPS node
+        # Use GPS simulator with improved path
         Node(
             package='fusion_localization',
             executable='gps_simulator_node.py',
             name='gps_sim',
             output='screen',
+            # In the GPS simulator node section
             parameters=[
-                {'center_lat': 59.9127},  # Starting position
+                {'center_lat': 59.9127},    # Starting position
                 {'center_lon': 10.7461},
-                {'radius': 10.0},         # 10 meter circle
-                {'speed': 1.0},           # 1 m/s
-                {'freq': 1.0},            # 1 Hz update rate
-            ]
+                {'radius': 20.0},           # Larger radius for better visibility
+                {'speed': 0.5},             # Slower speed for clearer visualization
+                {'freq': 0.5},              # 0.5 Hz update rate
+                {'noise_level': 0.1},       # Less noise for clearer pattern
+                {'path_type': 'figure_eight'},  # Explicitly set to figure-eight
+            ],
         ),
-        
+
         # Launch the IMU node
         Node(
             package='imu_driver',
@@ -79,6 +82,20 @@ def generate_launch_description():
                 ('imu', 'imu/data'),
                 ('gps/fix', 'gps_data'),
                 ('odometry/filtered', 'odometry/filtered'),
+            ]
+        ),
+        
+        # Foxglove-friendly Path Publisher Node
+        Node(
+            package='fusion_localization',
+            executable='foxglove_path_publisher_node.py',
+            name='foxglove_path_publisher',
+            output='screen',
+            parameters=[
+                {'max_points': 100},         # Reduce max points for cleaner visualization
+                {'save_path': True},
+                {'save_interval': 5.0},
+                {'scale_factor': 1.0},       # Adjust if needed for better visualization
             ]
         ),
         
