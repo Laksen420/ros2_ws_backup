@@ -5,7 +5,7 @@
     <visual>
       <origin xyz="-0.254 -0.080 -0.057" rpy="0 0 0"/>      
       <geometry>
-        <mesh filename="package://forklift_description/meshes/forklift_opt4.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://forklift_description/meshes/forklift.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="default">
         <color rgba="1.0 1.0 1.0 1.0"/>
