@@ -1,26 +1,20 @@
 <?xml version="1.0"?>
 <robot name="forklift">
   <link name="world"/>
-  
   <link name="imu_link">
     <visual>
-      <!-- Adjust the orientation (rpy = roll, pitch, yaw in radians) -->
-      <!-- For a 90-degree correction on X axis: pi/2 ≈ 1.57 -->
-      <origin xyz="0 0 0" rpy="-1.57 0 0"/>
+      <origin xyz="-0.254 -0.080 -0.057" rpy="0 0 0"/>      
       <geometry>
-        <mesh filename="package://forklift_description/meshes/forklift.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://forklift_description/meshes/forklift_opt4.dae" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="blue">
-        <color rgba="0.2 0.2 0.8 1"/>
+      <material name="default">
+        <color rgba="1.0 1.0 1.0 1.0"/>
       </material>
     </visual>
   </link>
-  
   <joint name="world_to_imu" type="fixed">
     <parent link="world"/>
     <child link="imu_link"/>
-    <!-- Adjust the translation to put the model on the ground -->
-    <!-- Change the 'z' value to place it on the ground (likely a negative value) -->
-    <origin xyz="0 0 -0.5" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
 </robot>
